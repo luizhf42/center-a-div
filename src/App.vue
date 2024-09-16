@@ -1,11 +1,28 @@
 <template>
-<h1>hello world</h1>
+	<div class="wrapper">
+		<h1>Welcome to your definitive alignment helper.</h1>
+		<p>Never forget how to center your <code>div</code> again.</p>
+
+		<button>Let's go! →</button>
+	</div>
 </template>
 
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <style scoped lang="postcss">
+.wrapper {
+	@apply flex justify-center items-center h-screen flex-col gap-2;
 
+	h1 {
+		@apply text-4xl font-bold;
+	}
+
+	p {
+		@apply text-2xl font-medium;
+	}
+
+	button {
+		@apply bg-[#007EA7] text-4xl px-6 py-4 mt-4 rounded-md hover:bg-[#005F80] transition-colors;
+	}
+}
 </style>
