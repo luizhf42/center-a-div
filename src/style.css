@@ -4,4 +4,8 @@
 
 body {
 	@apply min-h-full bg-gradient-end text-white bg-gradient-to-br from-gradient-start to-gradient-end to-80%;
+
+  code {
+    @apply bg-[#202122] px-2 py-1 mx-0.5 rounded-sm;
+  }
 }

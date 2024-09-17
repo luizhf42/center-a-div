@@ -1,0 +1,54 @@
+<template>
+	<h2>What do you want to align?</h2>
+
+	<div class="options">
+    <label class="container">
+      <input type="radio" name="element" checked />
+      <span>A div</span>
+    </label>
+    
+      <label class="container">
+      <input type="radio" name="element" />
+      <span>A block of text</span>
+    </label>
+    
+      <label class="container">
+      <input type="radio" name="element" />
+      <span>A dialog</span>
+    </label>
+  </div>
+
+  <button>Continue →</button>
+</template>
+
+<script setup lang="ts"></script>
+
+<style scoped lang="postcss">
+h2 {
+  @apply text-3xl;
+}
+
+.options {
+  @apply flex items-center justify-center gap-4 my-4;
+}
+
+label {
+	@apply w-fit;
+
+	input {
+		@apply h-0 w-0 opacity-0 absolute;
+	}
+
+	span {
+		@apply text-xl flex justify-center items-center w-52 h-16 rounded-xl cursor-pointer border-4 border-white;
+	}
+
+	input:checked + span {
+		@apply bg-[#04724d];
+	}
+}
+
+button {
+		@apply bg-button text-2xl px-6 py-4 mt-4 rounded-xl hover:bg-button-hover transition-colors;
+	}
+</style>
