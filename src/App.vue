@@ -22,7 +22,7 @@
 	}
 
 	button {
-		@apply bg-[#007EA7] text-4xl px-6 py-4 mt-4 rounded-md hover:bg-[#005F80] transition-colors;
+		@apply bg-button text-4xl px-6 py-4 mt-4 rounded-md hover:bg-button-hover transition-colors;
 	}
 }
 </style>

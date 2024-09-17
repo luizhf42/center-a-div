@@ -5,10 +5,14 @@ export default {
 		extend: {
 			fontFamily: {
 				sans: ["SUSE", "sans-serif"],
+			mono: ["JetBrains Mono", "monospace"],
 			},
-      backgroundColor: {
-        default: "#0b122b",
-      }
+			colors: {
+				"gradient-start": "#19163f",
+				"gradient-end": "#0b122b",
+				button: "#007ea7",
+				"button-hover": "#005f80",
+			},
 		},
 		plugins: [],
 	},
