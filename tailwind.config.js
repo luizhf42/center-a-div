@@ -5,7 +5,7 @@ export default {
 		extend: {
 			fontFamily: {
 				sans: ["SUSE", "sans-serif"],
-			mono: ["JetBrains Mono", "monospace"],
+				mono: ["JetBrains Mono", "monospace"],
 			},
 			colors: {
 				"gradient-start": "#19163f",
