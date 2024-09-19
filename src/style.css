@@ -2,10 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+	.default-button {
+		background: theme(colors.button);
+		font-size: theme(fontSize.2xl);
+		padding: theme(padding.4) theme(padding.6);
+		margin-top: theme(margin.4);
+		border-radius: theme(borderRadius.xl);
+		transition: theme(transitionProperty.colors);
+		&:hover {
+			background-color: theme(colors.button-hover);
+		}
+	}
+}
+
 body {
 	@apply min-h-full bg-gradient-end text-white bg-gradient-to-br from-gradient-start to-gradient-end to-80%;
 
-  code {
-    @apply bg-[#202122] px-2 py-1 mx-0.5 rounded-sm;
-  }
+	code {
+		@apply bg-[#202122] px-2 py-1 mx-0.5 rounded-sm;
+	}
 }

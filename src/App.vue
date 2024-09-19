@@ -1,13 +1,18 @@
 <template>
 	<div class="wrapper">
-		<h1>Welcome to your definitive alignment helper.</h1>
+		<!-- <h1>Welcome to your definitive alignment helper.</h1>
 		<p>Never forget how to center your <code>div</code> again.</p>
 
-		<button>Let's go! →</button>
+		<button>Let's go! →</button> -->
+		
+		<HowToAlign />
 	</div>
+
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import HowToAlign from './components/HowToAlign.vue';
+</script>
 
 <style scoped lang="postcss">
 .wrapper {

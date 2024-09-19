@@ -1,3 +1,5 @@
+const plugin = require("tailwindcss/plugin");
+
 /** @type {import('tailwindcss').Config} */
 export default {
 	content: ["./index.html", "./src/**/*.{vue,css,js,ts,jsx,tsx}"],
@@ -14,6 +16,5 @@ export default {
 				"button-hover": "#005f80",
 			},
 		},
-		plugins: [],
 	},
 };
