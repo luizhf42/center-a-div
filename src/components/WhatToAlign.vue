@@ -1,27 +1,27 @@
 <template>
-	<h2>What do you want to align?</h2>
-
-	<div class="options">
-		<label>
-			<input type="radio" name="element" checked />
-			<span>A div</span>
-		</label>
-
-		<label>
-			<input type="radio" name="element" />
-			<span>A block of text</span>
-		</label>
-
-		<label>
-			<input type="radio" name="element" />
-			<span>A dialog</span>
-		</label>
+	<div class="wrapper">
+		<h2>What do you want to align?</h2>
+		<div class="options">
+			<label>
+				<input type="radio" name="element" checked />
+				<span>A div</span>
+			</label>
+			<label>
+				<input type="radio" name="element" />
+				<span>A block of text</span>
+			</label>
+			<label>
+				<input type="radio" name="element" />
+				<span>A dialog</span>
+			</label>
+		</div>
+		<button @click="$emit('change-step', Steps.HowToAlign)">Continue →</button>
 	</div>
-
-	<button>Continue →</button>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Steps from "../models/steps";
+</script>
 
 <style scoped lang="postcss">
 .options {

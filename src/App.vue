@@ -1,33 +1,27 @@
 <template>
-	<div class="wrapper">
-		<h1>Your definitive alignment helper.</h1>
-		<p>Never forget how to center your <code>div</code> again.</p>
-
-		<button>Let's go! →</button>
-	</div>
+	<Start v-if="currentStep === Steps.Start" @change-step="changeStep" />
+	<WhatToAlign
+		v-if="currentStep === Steps.WhatToAlign"
+		@change-step="changeStep"
+	/>
+	<HowToAlign
+		v-if="currentStep === Steps.HowToAlign"
+		@change-step="changeStep"
+	/>
+	<Result v-if="currentStep === Steps.Result" @change-step="changeStep" />
 </template>
 
 <script setup lang="ts">
+import Steps from "./models/steps";
+import Start from "./components/Start.vue";
+import WhatToAlign from "./components/WhatToAlign.vue";
+import HowToAlign from "./components/HowToAlign.vue";
+import Result from "./components/Result.vue";
+import { ref } from "vue";
+
+const currentStep = ref(Steps.Start);
+
+const changeStep = (step: Steps) => (currentStep.value = step);
 </script>
 
-<style scoped lang="postcss">
-.wrapper {
-	@apply flex justify-center items-center h-screen flex-col;
-
-	h1 {
-		@apply text-4xl font-bold mb-2;
-	}
-
-	p {
-		@apply text-2xl font-medium mb-3;
-
-		code {
-			@apply bg-code px-2 py-1 mx-0.5 rounded-sm;
-		}
-	}
-
-	button {
-		@apply bg-button text-4xl px-6 py-4 mt-4 rounded-xl hover:bg-button-hover transition-colors;
-	}
-}
-</style>
+<style scoped lang="postcss"></style>

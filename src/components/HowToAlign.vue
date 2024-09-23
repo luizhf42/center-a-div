@@ -1,54 +1,58 @@
 <template>
-	<h2>How do you want to align it?</h2>
-	<main>
-		<div class="alignment-grid">
-			<label>
-				<input type="radio" name="alignment" checked />
-				<span>Top Left</span>
-			</label>
-			<label>
-				<input type="radio" name="alignment" />
-				<span>Top Center</span>
-			</label>
-			<label>
-				<input type="radio" name="alignment" />
-				<span>Top Right</span>
-			</label>
-			<label>
-				<input type="radio" name="alignment" />
-				<span>Middle Left</span>
-			</label>
-			<label>
-				<input type="radio" name="alignment" />
-				<span>Middle Center</span>
-			</label>
-			<label>
-				<input type="radio" name="alignment" />
-				<span>Middle Right</span>
-			</label>
-			<label>
-				<input type="radio" name="alignment" />
-				<span>Bottom Left</span>
-			</label>
-			<label>
-				<input type="radio" name="alignment" />
-				<span>Bottom Center</span>
-			</label>
-			<label>
-				<input type="radio" name="alignment" />
-				<span>Bottom Right</span>
-			</label>
-		</div>
-		<div class="alignment-result">
-			<p>
-				Your div will be aligned vertically at the - and horizontally at the -.
-			</p>
-			<button>Continue →</button>
-		</div>
-	</main>
+	<div class="wrapper">
+		<h2>How do you want to align it?</h2>
+		<main>
+			<div class="alignment-grid">
+				<label>
+					<input type="radio" name="alignment" checked />
+					<span>Top Left</span>
+				</label>
+				<label>
+					<input type="radio" name="alignment" />
+					<span>Top Center</span>
+				</label>
+				<label>
+					<input type="radio" name="alignment" />
+					<span>Top Right</span>
+				</label>
+				<label>
+					<input type="radio" name="alignment" />
+					<span>Middle Left</span>
+				</label>
+				<label>
+					<input type="radio" name="alignment" />
+					<span>Middle Center</span>
+				</label>
+				<label>
+					<input type="radio" name="alignment" />
+					<span>Middle Right</span>
+				</label>
+				<label>
+					<input type="radio" name="alignment" />
+					<span>Bottom Left</span>
+				</label>
+				<label>
+					<input type="radio" name="alignment" />
+					<span>Bottom Center</span>
+				</label>
+				<label>
+					<input type="radio" name="alignment" />
+					<span>Bottom Right</span>
+				</label>
+			</div>
+			<div class="alignment-result">
+				<p>
+					Your div will be aligned vertically at the - and horizontally at the -.
+				</p>
+				<button @click="$emit('change-step', Steps.Result)">Continue →</button>
+			</div>
+		</main>
+	</div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Steps from "../models/steps";
+</script>
 
 <style scoped lang="postcss">
 main {

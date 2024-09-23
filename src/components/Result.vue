@@ -1,26 +1,30 @@
 <template>
-	<h2>Here it is!</h2>
+	<div class="wrapper">
+		<h2>Here it is!</h2>
 
-  <span>Use Flexbox! Add this snippet to the parent element of your div</span>
-  <pre><code>
-{{ code }}
-  </code></pre>
+		<span>Use Flexbox! Add this snippet to the parent element of your div</span>
+		<pre><code>
+    {{ code }}
+      </code></pre>
 
-  <button>Align something else</button>
-
+		<button @click="$emit('change-step', Steps.Start)">
+			Align something else
+		</button>
+	</div>
 </template>
 
 <script setup lang="ts">
+import Steps from "../models/steps";
 const code = `.parent {
     display: flex;
     justify-content: center;
     align-items: center;
-}`
+}`;
 </script>
 
 <style scoped lang="postcss">
 span {
-  @apply bg-[#242a40] px-2 py-1 rounded-t-md w-[90%] max-w-lg mt-4;
+	@apply bg-[#242a40] px-2 py-1 rounded-t-md w-[90%] max-w-lg mt-4;
 }
 
 pre {
@@ -28,6 +32,6 @@ pre {
 }
 
 button {
-  @apply default-button;
+	@apply default-button;
 }
 </style>

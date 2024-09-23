@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+	.wrapper {
+		@apply flex flex-col items-center justify-center h-screen;
+	}
+	
 	h2 {
 		@apply text-3xl font-bold;
 	}
