@@ -24,10 +24,6 @@
 <script setup lang="ts"></script>
 
 <style scoped lang="postcss">
-h2 {
-	@apply text-3xl;
-}
-
 .options {
 	@apply flex items-center justify-center gap-4 my-4;
 }

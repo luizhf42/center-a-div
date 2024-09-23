@@ -51,9 +51,6 @@
 <script setup lang="ts"></script>
 
 <style scoped lang="postcss">
-h2 {
-	@apply text-3xl;
-}
 main {
 	@apply flex justify-center items-center gap-8 my-8;
 	.alignment-grid {
