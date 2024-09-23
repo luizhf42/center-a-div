@@ -14,6 +14,7 @@ export default {
 				"gradient-end": "#0b122b",
 				button: "#007ea7",
 				"button-hover": "#005f80",
+				code: "#202122",
 			},
 		},
 	},
