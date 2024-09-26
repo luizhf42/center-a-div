@@ -3,24 +3,47 @@
 		<h2>What do you want to align?</h2>
 		<div class="options">
 			<label>
-				<input type="radio" name="element" checked />
+				<input
+					type="radio"
+					name="element"
+					:value="Element.Div"
+					v-model="selectedElement"
+					checked
+				/>
 				<span>A div</span>
 			</label>
 			<label>
-				<input type="radio" name="element" />
+				<input
+					type="radio"
+					name="element"
+					:value="Element.Text"
+					v-model="selectedElement"
+				/>
 				<span>A block of text</span>
 			</label>
 			<label>
-				<input type="radio" name="element" />
+				<input
+					type="radio"
+					name="element"
+					:value="Element.Dialog"
+					v-model="selectedElement"
+				/>
 				<span>A dialog</span>
 			</label>
 		</div>
-		<button @click="$emit('change-step', Steps.HowToAlign)">Continue →</button>
+		<button @click="$emit('change-step', Step.HowToAlign)">Continue →</button>
 	</div>
 </template>
 
 <script setup lang="ts">
-import Steps from "../models/steps";
+import { ref, watch } from "vue";
+import Step from "../models/steps";
+import { Element } from "../models/element";
+import { useElementStore } from "../stores/element";
+
+const selectedElement = ref(Element.Div);
+const { updateElement } = useElementStore();
+watch(selectedElement, (newElement) => updateElement(newElement));
 </script>
 
 <style scoped lang="postcss">
