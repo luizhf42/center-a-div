@@ -37,8 +37,8 @@
 
 <script setup lang="ts">
 import { ref, watch } from "vue";
-import Step from "../models/steps";
-import { Element } from "../models/element";
+import Step from "../types/steps";
+import { Element } from "../types/element";
 import { useElementStore } from "../stores/element";
 
 const selectedElement = ref<Element>("div");

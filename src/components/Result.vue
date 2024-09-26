@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import Step from "../models/steps";
+import Step from "../types/steps";
 
 const code = `.parent {
     display: flex;

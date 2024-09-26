@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import Step from "./models/steps";
+import Step from "./types/steps";
 import Start from "./components/Start.vue";
 import WhatToAlign from "./components/WhatToAlign.vue";
 import HowToAlign from "./components/HowToAlign.vue";
@@ -25,3 +25,4 @@ const changeStep = (step: Step) => (currentStep.value = step);
 </script>
 
 <style scoped lang="postcss"></style>
+./types/steps

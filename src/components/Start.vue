@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-import Step from "../models/steps";
+import Step from "../types/steps";
 </script>
 
 <style scoped lang="postcss">
