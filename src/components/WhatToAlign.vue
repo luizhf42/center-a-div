@@ -6,7 +6,7 @@
 				<input
 					type="radio"
 					name="element"
-					:value="Element.Div"
+					value="div"
 					v-model="selectedElement"
 					checked
 				/>
@@ -16,7 +16,7 @@
 				<input
 					type="radio"
 					name="element"
-					:value="Element.Text"
+					value="text"
 					v-model="selectedElement"
 				/>
 				<span>A block of text</span>
@@ -25,7 +25,7 @@
 				<input
 					type="radio"
 					name="element"
-					:value="Element.Dialog"
+					value="dialog"
 					v-model="selectedElement"
 				/>
 				<span>A dialog</span>
@@ -41,7 +41,7 @@ import Step from "../models/steps";
 import { Element } from "../models/element";
 import { useElementStore } from "../stores/element";
 
-const selectedElement = ref(Element.Div);
+const selectedElement = ref<Element>("div");
 const { updateElement } = useElementStore();
 watch(selectedElement, (newElement) => updateElement(newElement));
 </script>
