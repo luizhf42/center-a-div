@@ -91,7 +91,7 @@
 					Your div will be aligned vertically at the {{ verticalAlignment }} and
 					horizontally at the {{ horizontalAlignment }}.
 				</p>
-				<button @click="$emit('change-step', Steps.Result)">Continue →</button>
+				<button @click="$emit('change-step', Step.Result)">Continue →</button>
 			</div>
 		</main>
 	</div>
@@ -99,7 +99,7 @@
 
 <script setup lang="ts">
 import { watch, ref } from "vue";
-import Steps from "../models/steps";
+import Step from "../models/steps";
 
 const alignment = ref("top left");
 

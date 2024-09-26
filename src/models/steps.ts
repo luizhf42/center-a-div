@@ -1,8 +1,8 @@
-const enum Steps {
+const enum Step {
 	Start = "Start",
 	WhatToAlign = "WhatToAlign",
 	HowToAlign = "HowToAlign",
 	Result = "Result",
 }
 
-export default Steps;
+export default Step;

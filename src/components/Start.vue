@@ -3,15 +3,12 @@
 		<h1>Your definitive alignment helper.</h1>
 		<p>Never forget how to center your <code>div</code> again.</p>
 
-		<button @click="$emit('change-step', Steps.WhatToAlign)">Let's go! →</button>
+		<button @click="$emit('change-step', Step.WhatToAlign)">Let's go! →</button>
 	</div>
 </template>
 
 <script setup lang="ts">
-import Steps from "../models/steps";
-// import { useStepsStore } from "../stores/steps";
-
-// const { changeStep } = useStepsStore();
+import Step from "../models/steps";
 </script>
 
 <style scoped lang="postcss">

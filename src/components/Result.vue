@@ -3,18 +3,18 @@
 		<h2>Here it is!</h2>
 
 		<span>Use Flexbox! Add this snippet to the parent element of your div</span>
-		<pre><code>
-    {{ code }}
-      </code></pre>
 
-		<button @click="$emit('change-step', Steps.Start)">
+		<pre><code>{{ code }}</code></pre>
+
+		<button @click="$emit('change-step', Step.Start)">
 			Align something else
 		</button>
 	</div>
 </template>
 
 <script setup lang="ts">
-import Steps from "../models/steps";
+import Step from "../models/steps";
+
 const code = `.parent {
     display: flex;
     justify-content: center;
@@ -28,7 +28,7 @@ span {
 }
 
 pre {
-	@apply bg-code w-[90%] max-w-lg px-2 rounded-b-md mb-4;
+	@apply bg-code w-[90%] max-w-lg p-2 rounded-b-md mb-4;
 }
 
 button {
