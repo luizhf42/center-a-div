@@ -3,13 +3,13 @@ import {
 	Element,
 	HorizontalAlignment,
 	VerticalAlignment,
-} from "../models/element";
+} from "../types/element";
 import { ref } from "vue";
 
 export const useElementStore = defineStore("element", () => {
-	const element = ref(Element.Div);
-	const verticalAlignment = ref(VerticalAlignment.Top);
-	const horizontalAlignment = ref(HorizontalAlignment.Left);
+	const element = ref<Element>("div");
+	const verticalAlignment = ref<VerticalAlignment>("top");
+	const horizontalAlignment = ref<HorizontalAlignment>("left");
 
 	const updateElement = (newElement: Element) => (element.value = newElement);
 	const updateVerticalAlignment = (newAlignment: VerticalAlignment) =>

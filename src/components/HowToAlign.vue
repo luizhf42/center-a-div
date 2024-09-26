@@ -99,16 +99,23 @@
 
 <script setup lang="ts">
 import { watch, ref } from "vue";
-import Step from "../models/steps";
+import Step from "../types/steps";
+import { VerticalAlignment, HorizontalAlignment } from "../types/element";
+import { useElementStore } from "../stores/element";
 
 const alignment = ref("top left");
+const verticalAlignment = ref<VerticalAlignment>("top");
+const horizontalAlignment = ref<HorizontalAlignment>("left");
 
-const verticalAlignment = ref("top");
-const horizontalAlignment = ref("left");
+const { updateHorizontalAlignment, updateVerticalAlignment } =
+	useElementStore();
 
 watch(alignment, (newAlignment) => {
-	[verticalAlignment.value, horizontalAlignment.value] =
-		newAlignment.split(" ");
+	[verticalAlignment.value, horizontalAlignment.value] = newAlignment.split(
+		" "
+	) as [VerticalAlignment, HorizontalAlignment];
+	updateVerticalAlignment(verticalAlignment.value);
+	updateHorizontalAlignment(horizontalAlignment.value);
 });
 </script>
 
