@@ -17,5 +17,5 @@ export const useElementStore = defineStore("element", () => {
 	const updateHorizontalAlignment = (newAlignment: HorizontalAlignment) =>
 		(horizontalAlignment.value = newAlignment);
 
-	return { updateElement, updateVerticalAlignment, updateHorizontalAlignment };
+	return { element, verticalAlignment, horizontalAlignment, updateElement, updateVerticalAlignment, updateHorizontalAlignment };
 });

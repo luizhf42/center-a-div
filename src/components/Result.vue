@@ -4,7 +4,7 @@
 
 		<span>Use Flexbox! Add this snippet to the parent element of your div</span>
 
-		<pre><code>{{ code }}</code></pre>
+		<pre><code>{{ getAlignmentCode() }}</code></pre>
 
 		<button @click="$emit('change-step', Step.Start)">
 			Align something else
@@ -14,12 +14,7 @@
 
 <script setup lang="ts">
 import Step from "../types/steps";
-
-const code = `.parent {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}`;
+import getAlignmentCode from "../features/getAlignmentCode";
 </script>
 
 <style scoped lang="postcss">
