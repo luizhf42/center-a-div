@@ -98,7 +98,7 @@
 </template>
 
 <script setup lang="ts">
-import { watch, ref } from "vue";
+import { watch, ref, onMounted } from "vue";
 import Step from "../types/steps";
 import { VerticalAlignment, HorizontalAlignment } from "../types/element";
 import { useElementStore } from "../stores/element";
@@ -114,9 +114,15 @@ watch(alignment, (newAlignment) => {
 	[verticalAlignment.value, horizontalAlignment.value] = newAlignment.split(
 		" "
 	) as [VerticalAlignment, HorizontalAlignment];
+	updateStoreAlignment();
+});
+
+const updateStoreAlignment = () => {
 	updateVerticalAlignment(verticalAlignment.value);
 	updateHorizontalAlignment(horizontalAlignment.value);
-});
+};
+
+onMounted(() => updateStoreAlignment());
 </script>
 
 <style scoped lang="postcss">
