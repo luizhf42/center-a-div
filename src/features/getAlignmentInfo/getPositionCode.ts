@@ -1,0 +1,43 @@
+import { HorizontalAlignment, VerticalAlignment } from "../../types/element";
+
+const verticalInsetValues = {
+	top: ["0", "auto"],
+	middle: ["auto", "auto"],
+	bottom: ["auto", "0"],
+};
+const horizontalInsetValues = {
+	left: ["0", "auto"],
+	center: ["auto", "auto"],
+	right: ["auto", "0"],
+};
+
+const getPositionCode = (
+	verticalAlignment: VerticalAlignment,
+	horizontalAlignment: HorizontalAlignment
+) => {
+	const inset = getInsetValue(verticalAlignment, horizontalAlignment);
+
+	return `position: fixed;
+  width: 50%; /* replace with your dialog width */
+  height: 50%; /* replace with your dialog height */
+  margin: auto;
+  inset: ${inset};`;
+};
+
+const getInsetValue = (
+	verticalAlignment: VerticalAlignment,
+	horizontalAlignment: HorizontalAlignment
+) => {
+	const [top, bottom] = verticalInsetValues[verticalAlignment];
+	const [left, right] = horizontalInsetValues[horizontalAlignment];
+	const inset = `${top} ${right} ${bottom} ${left}`;
+
+	if (!inset.includes("auto")) {
+		return "0";
+	} else if (!inset.includes("0")) {
+		return "auto";
+	}
+	return inset;
+};
+
+export default getPositionCode;
