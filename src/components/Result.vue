@@ -2,9 +2,9 @@
 	<div class="wrapper">
 		<h2>Here it is!</h2>
 
-		<span>Use Flexbox! Add this snippet to the parent element of your div</span>
+		<span>{{ message }}</span>
 
-		<pre><code>{{ getAlignmentCode() }}</code></pre>
+		<pre><code>{{ code }}</code></pre>
 
 		<button @click="$emit('change-step', Step.Start)">
 			Align something else
@@ -14,7 +14,9 @@
 
 <script setup lang="ts">
 import Step from "../types/steps";
-import getAlignmentCode from "../features/getAlignmentCode";
+import getAlignmentInfo from "../features/getAlignmentInfo";
+
+const { message, code } = getAlignmentInfo();
 </script>
 
 <style scoped lang="postcss">
@@ -30,3 +32,4 @@ button {
 	@apply default-button;
 }
 </style>
+../features/getAlignmentInfo
