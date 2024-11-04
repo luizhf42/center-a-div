@@ -2,12 +2,12 @@ import { HorizontalAlignment, VerticalAlignment } from "../../types/element";
 
 const verticalInsetValues = {
 	top: ["0", "auto"],
-	middle: ["auto", "auto"],
+	middle: ["0", "0"],
 	bottom: ["auto", "0"],
 };
 const horizontalInsetValues = {
 	left: ["0", "auto"],
-	center: ["auto", "auto"],
+	center: ["0", "0"],
 	right: ["auto", "0"],
 };
 
