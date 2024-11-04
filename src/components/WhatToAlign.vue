@@ -49,7 +49,7 @@ watch(selectedElement, (newElement) => updateElement(newElement));
 
 <style scoped lang="postcss">
 .options {
-	@apply flex items-center justify-center gap-4 my-4;
+	@apply flex-col min-[680px]:flex-row flex items-center justify-center gap-4 my-4;
 }
 
 label {

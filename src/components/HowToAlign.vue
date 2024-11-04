@@ -127,18 +127,19 @@ onMounted(() => updateStoreAlignment());
 
 <style scoped lang="postcss">
 main {
-	@apply flex justify-center items-center gap-8 my-8;
+	@apply flex-col sm:flex-row flex justify-center items-center gap-8 my-8;
+
 	.alignment-grid {
 		@apply grid grid-cols-3 grid-rows-3;
 
 		label {
-			@apply w-20 h-20 text-lg border border-white;
+			@apply w-16 min-[300px]:w-20 aspect-square border border-white;
 
 			input {
 				@apply h-0 w-0 opacity-0 absolute;
 			}
 			span {
-				@apply w-full h-full text-lg text-center grid content-center cursor-pointer px-2;
+				@apply w-full h-full text-base min-[300px]:text-lg text-center grid content-center cursor-pointer px-2;
 			}
 
 			input:checked + span {

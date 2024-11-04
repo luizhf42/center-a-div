@@ -21,15 +21,15 @@ const { message, code } = getAlignmentInfo();
 
 <style scoped lang="postcss">
 span {
-	@apply bg-[#242a40] px-2 py-1 rounded-t-md w-[90%] max-w-lg mt-4;
+	@apply text-left bg-[#242a40] px-2 py-1 rounded-t-md w-[90%] max-w-xl mt-4;
 }
 
 pre {
-	@apply bg-code w-[90%] max-w-lg p-2 rounded-b-md mb-4;
+	@apply text-left bg-code w-[90%] max-w-xl px-2 py-4 rounded-b-md mb-4 overflow-x-auto;
+	scrollbar-color: #ffffff #242a40;
 }
 
 button {
 	@apply default-button;
 }
 </style>
-../features/getAlignmentInfo

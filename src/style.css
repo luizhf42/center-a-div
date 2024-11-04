@@ -4,7 +4,7 @@
 
 @layer base {
 	.wrapper {
-		@apply flex flex-col items-center justify-center h-screen;
+		@apply flex flex-col items-center justify-center min-h-screen text-center text-balance py-4;
 	}
 	
 	h2 {
