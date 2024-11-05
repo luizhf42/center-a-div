@@ -91,7 +91,7 @@
 					Your div will be aligned vertically at the {{ verticalAlignment }} and
 					horizontally at the {{ horizontalAlignment }}.
 				</p>
-				<button @click="$emit('change-step', Step.Result)">Continue →</button>
+				<button @click="$emit('change-step', getNextStep())">Continue →</button>
 			</div>
 		</main>
 	</div>
@@ -107,7 +107,7 @@ const alignment = ref("top left");
 const verticalAlignment = ref<VerticalAlignment>("top");
 const horizontalAlignment = ref<HorizontalAlignment>("left");
 
-const { updateHorizontalAlignment, updateVerticalAlignment } =
+const { updateHorizontalAlignment, updateVerticalAlignment, element } =
 	useElementStore();
 
 watch(alignment, (newAlignment) => {
@@ -123,6 +123,8 @@ const updateStoreAlignment = () => {
 };
 
 onMounted(() => updateStoreAlignment());
+
+const getNextStep = () => element === "text" ? Step.HowToAlignText : Step.Result;
 </script>
 
 <style scoped lang="postcss">
