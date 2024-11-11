@@ -2,17 +2,25 @@
 	<div class="wrapper">
 		<h2>Here it is!</h2>
 
-		<span>{{ message }}</span>
+		<div class="result">
+			<span>{{ message }}</span>
+			<VCodeBlock
+				:code="code"
+				highlightjs
+				lang="css"
+				theme="github-dark"
+				code-block-radius="0"
+			/>
+		</div>
 
-		<pre><code>{{ code }}</code></pre>
-
-		<button @click="$emit('change-step', Step.Start)">
+		<button @click="$emit('change-step', Step.WhatToAlign)">
 			Align something else
 		</button>
 	</div>
 </template>
 
 <script setup lang="ts">
+import VCodeBlock from "@wdns/vue-code-block";
 import Step from "../types/steps";
 import getAlignmentInfo from "../features/getAlignmentInfo";
 
@@ -20,13 +28,17 @@ const { message, code } = getAlignmentInfo();
 </script>
 
 <style scoped lang="postcss">
-span {
-	@apply text-left bg-[#242a40] px-2 py-1 rounded-t-md w-[90%] max-w-xl mt-4;
-}
+.result {
+	@apply flex flex-col items-center text-left max-w-xl w-[90%];
 
-pre {
-	@apply text-left bg-code w-[90%] max-w-xl px-2 py-4 rounded-b-md mb-4 overflow-x-auto;
-	scrollbar-color: #ffffff #242a40;
+	> span {
+		@apply bg-[#242a40] px-2 py-1 rounded-t-md w-full mt-4;
+	}
+
+	.v-code-block {
+		@apply bg-code w-full rounded-b-md mb-4 overflow-x-auto;
+		scrollbar-color: #ffffff #242a40;
+	}
 }
 
 button {

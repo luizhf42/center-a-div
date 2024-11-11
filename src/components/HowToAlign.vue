@@ -88,7 +88,7 @@
 			</div>
 			<div class="alignment-result">
 				<p>
-					Your div will be aligned vertically at the {{ verticalAlignment }} and
+					Your element will be aligned vertically at the {{ verticalAlignment }} and
 					horizontally at the {{ horizontalAlignment }}.
 				</p>
 				<button @click="$emit('change-step', getNextStep())">Continue →</button>
