@@ -17,19 +17,25 @@ const messages = {
 };
 
 const getAlignmentInfo = () => {
-	const { element, verticalAlignment, horizontalAlignment } = useElementStore();
+	const { element, verticalAlignment, horizontalAlignment, textAlignment } =
+		useElementStore();
 	const method = chooseMethod(element, verticalAlignment);
 
-	const styles = {
+	const elementAlignment = {
 		flexbox: getFlexboxCode(verticalAlignment, horizontalAlignment),
 		margin: getMarginCode(horizontalAlignment),
 		position: getPositionCode(verticalAlignment, horizontalAlignment),
 	}[method];
-	
+
 	const message = messages[method];
+	const properties = [elementAlignment];
+
+	if (element === "text") properties.push(`text-align: ${textAlignment};`);
+
 	const code = `.${classNames[method]} {
-  ${styles}
+  ${properties.join("\n  ") }
 }`;
+
 
 	return { message, code };
 };
