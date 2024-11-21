@@ -6,3 +6,5 @@ export type HorizontalAlignment = "left" | "center" | "right";
 
 export type TextAlignment = HorizontalAlignment;
 
+export type Unit = "px" | "em" | "%";
+

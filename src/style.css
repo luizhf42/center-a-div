@@ -6,7 +6,7 @@
 	.wrapper {
 		@apply flex flex-col items-center justify-center min-h-screen text-center text-balance py-4;
 	}
-	
+
 	h2 {
 		@apply text-3xl font-bold;
 	}
@@ -14,18 +14,31 @@
 
 @layer components {
 	.default-button {
-		background: theme(colors.button);
+		background: theme(backgroundColor.button);
 		font-size: theme(fontSize.2xl);
 		padding: theme(padding.4) theme(padding.6);
 		margin-top: theme(margin.4);
 		border-radius: theme(borderRadius.xl);
 		transition: theme(transitionDuration.200) theme(transitionProperty.colors);
 		&:hover {
-			background-color: theme(colors.button-hover);
+			background-color: theme(backgroundColor.button-hover);
 		}
 	}
 }
 
 body {
 	@apply min-h-full bg-gradient-end text-white bg-gradient-to-br from-gradient-start to-gradient-end to-80%;
+
+	/* Make arrows of the number input disappear */
+	/* Chrome, Safari, Edge, Opera */
+	input::-webkit-outer-spin-button,
+	input::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+
+	/* Firefox */
+	input[type="number"] {
+		-moz-appearance: textfield;
+	}
 }

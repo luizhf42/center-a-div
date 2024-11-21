@@ -29,7 +29,7 @@ const { message, code } = getAlignmentInfo();
 
 <style scoped lang="postcss">
 .result {
-	@apply flex flex-col items-center text-left max-w-xl w-[90%];
+	@apply flex flex-col items-center text-left max-w-xl w-9/10;
 
 	> span {
 		@apply bg-[#242a40] px-2 py-1 rounded-t-md w-full mt-4;

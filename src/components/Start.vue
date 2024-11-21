@@ -28,7 +28,7 @@ import Step from "../types/steps";
 	}
 
 	button {
-		@apply bg-button text-4xl px-6 py-4 mt-4 rounded-xl hover:bg-button-hover transition-colors;
+		@apply text-4xl default-button;
 	}
 }
 </style>
