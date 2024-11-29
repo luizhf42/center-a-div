@@ -8,3 +8,10 @@ export type TextAlignment = HorizontalAlignment;
 
 export type Unit = "px" | "em" | "%";
 
+export type Dimension = "width" | "height";
+
+export type Size = {
+  width?: string;
+  height?: string;
+}
+

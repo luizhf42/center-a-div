@@ -3,33 +3,58 @@
 		<div class="input">
 			<label
 				><code>{{ dimension }}:</code>
-				<input type="number" v-model="dimensionValue" :disabled="disabled"
+				<input
+					type="number"
+					v-model="inputValue"
+					:disabled="isDisabled"
+					@input="updateSizeFromInput"
 			/></label>
-			<select v-model="unit" :disabled="disabled">
+			<select
+				v-model="unit"
+				:disabled="isDisabled"
+				@change="updateSizeFromInput"
+			>
 				<option selected value="%">%</option>
 				<option value="px">px</option>
 				<option value="em">em</option>
 			</select>
 		</div>
 		<label class="checkbox">
-			<input type="checkbox" v-model="checked" />
+			<input
+				type="checkbox"
+				v-model="isChecked"
+				@change="updateSizeFromInput"
+			/>
 			<span class="checkmark"></span>Unknown
 		</label>
 	</section>
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { Unit } from "../types/element";
+import { useElementStore } from "../stores/element";
+import { Dimension } from "../types/element";
 
-const { dimension } = defineProps({
-	dimension: String,
-});
+const { dimension } = defineProps<{
+	dimension: Dimension;
+}>();
 
-const dimensionValue = ref(42);
+const { updateSize } = useElementStore();
+const inputValue = ref(42);
 const unit = ref<Unit>("%");
-const checked = ref(false);
-const disabled = computed(() => checked.value);
+const isChecked = ref(false);
+const isDisabled = computed(() => isChecked.value);
+
+const isInputEmptyOrDisabled = () => !inputValue.value || isDisabled.value;
+const getDimensionValue = () =>
+	isInputEmptyOrDisabled() ? undefined : inputValue.value + unit.value;
+
+const updateSizeFromInput = () => {
+	updateSize(dimension, getDimensionValue());
+};
+
+onMounted(() => updateSizeFromInput());
 </script>
 
 <style scoped lang="postcss">
@@ -37,11 +62,11 @@ section {
 	@apply flex flex-col w-fit my-4;
 
 	.input {
-		@apply flex items-center text-xl h-10 text-code-accent bg-code p-3 justify-between w-72 rounded-md;
+		@apply flex items-center min-[300px]:text-xl h-10 text-code-accent bg-code p-3 justify-between w-64 min-[300px]:w-72 rounded-md;
 
 		input,
 		select {
-			@apply bg-code disabled:bg-disabled focus-visible:outline-none w-auto text-white;
+			@apply bg-code disabled:bg-disabled focus-visible:outline-none text-white;
 		}
 
 		select {
@@ -62,7 +87,7 @@ section {
 	}
 
 	.checkbox {
-		@apply flex items-center text-xl text-code-accent mt-2;
+		@apply flex items-center min-[300px]:text-xl text-code-accent mt-2;
 
 		input {
 			@apply opacity-0 h-0 w-0 absolute;

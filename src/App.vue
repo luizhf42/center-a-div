@@ -1,16 +1,6 @@
 <template>
-	<!-- <Start v-if="currentStep === Step.Start" @change-step="changeStep" />
-	<WhatToAlign
-		v-if="currentStep === Step.WhatToAlign"
-		@change-step="changeStep"
-	/>
-	<HowToAlign
-		v-if="currentStep === Step.HowToAlign"
-		@change-step="changeStep"
-	/>
-	<Result v-if="currentStep === Step.Result" @change-step="changeStep" /> -->
-
 	<component :is="currentComponent" @change-step="changeStep" />
+	 <!-- <Size /> -->
 </template>
 
 <script setup lang="ts">
@@ -19,6 +9,7 @@ import Start from "./components/Start.vue";
 import WhatToAlign from "./components/WhatToAlign.vue";
 import HowToAlign from "./components/HowToAlign.vue";
 import HowToAlignText from "./components/HowToAlignText.vue";
+import Size from "./components/Size.vue";
 import Result from "./components/Result.vue";
 import { computed, ref } from "vue";
 
@@ -29,6 +20,7 @@ const steps = {
 	WhatToAlign,
 	HowToAlign,
 	HowToAlignText,
+	Size,
 	Result
 };
 const currentComponent = computed(() => steps[currentStep.value]);

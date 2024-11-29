@@ -3,6 +3,7 @@ const enum Step {
 	WhatToAlign = "WhatToAlign",
 	HowToAlign = "HowToAlign",
 	HowToAlignText = "HowToAlignText",
+	Size = "Size",
 	Result = "Result",
 }
 

@@ -88,8 +88,9 @@
 			</div>
 			<div class="alignment-result">
 				<p>
-					Your element will be aligned vertically at the {{ verticalAlignment }} and
-					horizontally at the {{ horizontalAlignment }}.
+					Your element will be aligned vertically at the
+					{{ verticalAlignment }} and horizontally at the
+					{{ horizontalAlignment }}.
 				</p>
 				<button @click="$emit('change-step', getNextStep())">Continue →</button>
 			</div>
@@ -124,7 +125,8 @@ const updateStoreAlignment = () => {
 
 onMounted(() => updateStoreAlignment());
 
-const getNextStep = () => element === "text" ? Step.HowToAlignText : Step.Result;
+const getNextStep = () =>
+	element === "text" ? Step.HowToAlignText : Step.Size;
 </script>
 
 <style scoped lang="postcss">

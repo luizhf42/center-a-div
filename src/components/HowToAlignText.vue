@@ -36,7 +36,7 @@
 				<p :class="`text-${alignment}`">
 					Your text will be in the {{ alignment }}.
 				</p>
-				<button @click="$emit('change-step', Step.Result)">Continue →</button>
+				<button @click="$emit('change-step', Step.Size)">Continue →</button>
 			</div>
 		</main>
 	</div>
