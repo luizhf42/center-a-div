@@ -67,8 +67,4 @@ label {
 		@apply bg-[#04724d] font-bold;
 	}
 }
-
-button {
-	@apply default-button;
-}
 </style>

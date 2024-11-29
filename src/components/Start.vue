@@ -28,7 +28,7 @@ import Step from "../types/steps";
 	}
 
 	button {
-		@apply text-4xl default-button;
+		@apply text-4xl;
 	}
 }
 </style>

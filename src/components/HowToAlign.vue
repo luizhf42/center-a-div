@@ -156,9 +156,6 @@ main {
 		p {
 			@apply text-xl max-w-60;
 		}
-		button {
-			@apply default-button;
-		}
 	}
 }
 </style>

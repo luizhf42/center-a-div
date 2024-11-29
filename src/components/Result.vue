@@ -40,8 +40,4 @@ const { message, code } = getAlignmentInfo();
 		scrollbar-color: #ffffff #242a40;
 	}
 }
-
-button {
-	@apply default-button;
-}
 </style>

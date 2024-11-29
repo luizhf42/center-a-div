@@ -83,10 +83,6 @@ main {
 		p {
 			@apply text-xl w-11/12;
 		}
-
-		button {
-			@apply default-button;
-		}
 	}
 }
 </style>
