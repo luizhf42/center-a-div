@@ -7,6 +7,7 @@
 					type="number"
 					v-model="inputValue"
 					:disabled="isDisabled"
+					@keydown="preventInvalidChars"
 					@input="updateSizeFromInput"
 			/></label>
 			<select
@@ -41,10 +42,15 @@ const { dimension } = defineProps<{
 }>();
 
 const { updateSize } = useElementStore();
-const inputValue = ref(42);
+const inputValue = ref("42");
 const unit = ref<Unit>("%");
 const isChecked = ref(false);
 const isDisabled = computed(() => isChecked.value);
+
+const preventInvalidChars = (event: KeyboardEvent) => {
+	const invalidChars = ["-", "+", "e", "E"];
+	if (invalidChars.includes(event.key)) event.preventDefault();
+};
 
 const isInputEmptyOrDisabled = () => !inputValue.value || isDisabled.value;
 const getDimensionValue = () =>
