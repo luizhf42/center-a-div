@@ -18,8 +18,6 @@ const getPositionCode = (
 	const inset = getInsetValue(verticalAlignment, horizontalAlignment);
 
 	return `position: fixed;
-  width: 50%; /* replace with your dialog width */
-  height: 50%; /* replace with your dialog height */
   margin: auto;
   inset: ${inset};`;
 };

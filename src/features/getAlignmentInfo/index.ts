@@ -3,6 +3,7 @@ import chooseMethod from "./chooseMethod";
 import getFlexboxCode from "./getFlexboxCode";
 import getMarginCode from "./getMarginCode";
 import getPositionCode from "./getPositionCode";
+import getSizeCode from "./getSizeCode";
 
 const classNames = {
 	flexbox: "parent",
@@ -28,14 +29,13 @@ const getAlignmentInfo = () => {
 	}[method];
 
 	const message = messages[method];
-	const properties = [elementAlignment];
+	const properties = [elementAlignment, ...getSizeCode()];
 
 	if (element === "text") properties.push(`text-align: ${textAlignment};`);
 
 	const code = `.${classNames[method]} {
-  ${properties.join("\n  ") }
+  ${properties.join("\n  ")}
 }`;
-
 
 	return { message, code };
 };
