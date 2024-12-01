@@ -13,19 +13,16 @@
 			/>
 		</div>
 
-		<button @click="setCurrentStep(Step.WhatToAlign)">
-			Align something else
-		</button>
+		<button @click="restart()">Align something else</button>
 	</div>
 </template>
 
 <script setup lang="ts">
 import VCodeBlock from "@wdns/vue-code-block";
-import Step from "../types/steps";
 import getAlignmentInfo from "../features/getAlignmentInfo";
 import { useStepsStore } from "../stores/steps";
 
-const { setCurrentStep } = useStepsStore();
+const { restart } = useStepsStore();
 
 const { message, code } = getAlignmentInfo();
 </script>

@@ -13,11 +13,22 @@ export const useElementStore = defineStore("element", () => {
 	const element = ref<Element>("div");
 	const verticalAlignment = ref<VerticalAlignment>("top");
 	const horizontalAlignment = ref<HorizontalAlignment>("left");
-	const textAlignment = ref<TextAlignment>();
+	const textAlignment = ref<TextAlignment>("left");
 	const size = ref<Size>({
 		width: "42%",
 		height: "42%",
 	});
+
+	const resetValues = () => {
+		element.value = "div";
+		verticalAlignment.value = "top";
+		horizontalAlignment.value = "left";
+		textAlignment.value = "left";
+		size.value = {
+			width: "42%",
+			height: "42%",
+		};
+	};
 
 	const updateElement = (newElement: Element) => (element.value = newElement);
 	const updateVerticalAlignment = (newAlignment: VerticalAlignment) =>
@@ -30,6 +41,7 @@ export const useElementStore = defineStore("element", () => {
 		(size.value[dimension] = valueWithUnit);
 
 	return {
+		resetValues,
 		element,
 		verticalAlignment,
 		horizontalAlignment,
