@@ -36,7 +36,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, watch } from "vue";
+import { ref, watch } from "vue";
 import Step from "../types/steps";
 import { Element } from "../types/element";
 import { useElementStore } from "../stores/element";
@@ -46,7 +46,6 @@ const { setCurrentStep } = useStepsStore();
 
 const selectedElement = ref<Element>("div");
 const { updateElement } = useElementStore();
-onMounted(() => updateElement(selectedElement.value));
 watch(selectedElement, (newElement) => updateElement(newElement));
 </script>
 

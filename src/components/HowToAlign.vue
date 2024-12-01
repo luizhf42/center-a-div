@@ -99,7 +99,7 @@
 </template>
 
 <script setup lang="ts">
-import { watch, ref, onMounted } from "vue";
+import { watch, ref } from "vue";
 import Step from "../types/steps";
 import { VerticalAlignment, HorizontalAlignment } from "../types/element";
 import { useElementStore } from "../stores/element";
@@ -125,8 +125,6 @@ const updateStoreAlignment = () => {
 	updateVerticalAlignment(verticalAlignment.value);
 	updateHorizontalAlignment(horizontalAlignment.value);
 };
-
-onMounted(() => updateStoreAlignment());
 
 const getNextStep = () =>
 	element === "text" ? Step.HowToAlignText : Step.Size;

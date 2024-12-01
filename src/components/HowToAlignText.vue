@@ -43,7 +43,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, watch } from "vue";
+import { ref, watch } from "vue";
 import Step from "../types/steps";
 import { useElementStore } from "../stores/element";
 import { TextAlignment } from "../types/element";
@@ -53,7 +53,6 @@ const { setCurrentStep } = useStepsStore();
 
 const { updateTextAlignment } = useElementStore();
 const alignment = ref<TextAlignment>("left");
-onMounted(() => updateTextAlignment(alignment.value));
 watch(alignment, (newAlignment) => updateTextAlignment(newAlignment));
 </script>
 

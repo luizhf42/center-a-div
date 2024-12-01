@@ -32,7 +32,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref } from "vue";
+import { computed, ref } from "vue";
 import { Unit } from "../types/element";
 import { useElementStore } from "../stores/element";
 import { Dimension } from "../types/element";
@@ -59,8 +59,6 @@ const getDimensionValue = () =>
 const updateSizeFromInput = () => {
 	updateSize(dimension, getDimensionValue());
 };
-
-onMounted(() => updateSizeFromInput());
 </script>
 
 <style scoped lang="postcss">
