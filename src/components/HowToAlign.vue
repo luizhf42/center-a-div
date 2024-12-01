@@ -1,6 +1,6 @@
 <template>
 	<div class="wrapper">
-		<h2>How do you want to align it?</h2>
+		<StepHeader title="How do you want to align it?" />
 		<main>
 			<div class="alignment-grid">
 				<label>
@@ -104,6 +104,7 @@ import Step from "../types/steps";
 import { VerticalAlignment, HorizontalAlignment } from "../types/element";
 import { useElementStore } from "../stores/element";
 import { useStepsStore } from "../stores/steps";
+import StepHeader from "../components/StepHeader.vue";
 
 const { setCurrentStep } = useStepsStore();
 

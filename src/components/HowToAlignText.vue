@@ -1,6 +1,6 @@
 <template>
 	<div class="wrapper">
-		<h2>How do you want your text alignment?</h2>
+		<StepHeader title="How do you want your text alignment?" />
 		<main>
 			<div class="alignment-grid">
 				<label>
@@ -48,6 +48,7 @@ import Step from "../types/steps";
 import { useElementStore } from "../stores/element";
 import { TextAlignment } from "../types/element";
 import { useStepsStore } from "../stores/steps";
+import StepHeader from "../components/StepHeader.vue";
 
 const { setCurrentStep } = useStepsStore();
 

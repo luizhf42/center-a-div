@@ -1,6 +1,7 @@
 <template>
 	<div class="wrapper">
-		<h2>What's the size of your element?</h2>
+		<StepHeader title="What's the size of your element?" />
+
 		<main>
 			<DimensionInput dimension="width" />
 			<DimensionInput dimension="height" />
@@ -13,6 +14,7 @@
 <script setup lang="ts">
 import { useStepsStore } from "../stores/steps";
 import Step from "../types/steps";
+import StepHeader from "../components/StepHeader.vue";
 import DimensionInput from "./DimensionInput.vue";
 
 const { setCurrentStep } = useStepsStore();

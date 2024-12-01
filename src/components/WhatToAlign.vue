@@ -1,6 +1,6 @@
 <template>
 	<div class="wrapper">
-		<h2>What do you want to align?</h2>
+		<StepHeader title="What do you want to align?" />
 		<div class="options">
 			<label>
 				<input
@@ -37,6 +37,7 @@
 
 <script setup lang="ts">
 import { ref, watch } from "vue";
+import StepHeader from "../components/StepHeader.vue";
 import Step from "../types/steps";
 import { Element } from "../types/element";
 import { useElementStore } from "../stores/element";
