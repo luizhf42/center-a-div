@@ -31,7 +31,7 @@
 				<span>A dialog</span>
 			</label>
 		</div>
-		<button @click="$emit('change-step', Step.HowToAlign)">Continue →</button>
+		<button @click="setCurrentStep(Step.HowToAlign)">Continue →</button>
 	</div>
 </template>
 
@@ -40,6 +40,9 @@ import { onMounted, ref, watch } from "vue";
 import Step from "../types/steps";
 import { Element } from "../types/element";
 import { useElementStore } from "../stores/element";
+import { useStepsStore } from "../stores/steps";
+
+const { setCurrentStep } = useStepsStore();
 
 const selectedElement = ref<Element>("div");
 const { updateElement } = useElementStore();

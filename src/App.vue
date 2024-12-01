@@ -1,33 +1,35 @@
 <template>
-	<component :is="currentComponent" @change-step="changeStep" />
-	 <!-- <Size /> -->
+	<component :is="currentComponent" />
 </template>
 
 <script setup lang="ts">
-import Step from "./types/steps";
 import Start from "./components/Start.vue";
 import WhatToAlign from "./components/WhatToAlign.vue";
 import HowToAlign from "./components/HowToAlign.vue";
 import HowToAlignText from "./components/HowToAlignText.vue";
 import Size from "./components/Size.vue";
 import Result from "./components/Result.vue";
-import { computed, ref } from "vue";
+import { ref, watch } from "vue";
+import { useStepsStore } from "./stores/steps";
+import Step from "./types/steps";
+import { storeToRefs } from "pinia";
 
-const currentStep = ref(Step.Start);
+const { currentStep } = storeToRefs(useStepsStore());
 
-const steps = {
+const stepsComponents = {
 	Start,
 	WhatToAlign,
 	HowToAlign,
 	HowToAlignText,
 	Size,
-	Result
+	Result,
 };
-const currentComponent = computed(() => steps[currentStep.value]);
 
-const changeStep = (step: Step) => {
-	currentStep.value = step;
-};
+const currentComponent = ref(stepsComponents[currentStep.value]);
+
+watch(currentStep, (nextStep: Step) => {
+    currentComponent.value = stepsComponents[nextStep];
+});
 </script>
 
 <style scoped lang="postcss"></style>

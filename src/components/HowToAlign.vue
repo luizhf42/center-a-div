@@ -92,7 +92,7 @@
 					{{ verticalAlignment }} and horizontally at the
 					{{ horizontalAlignment }}.
 				</p>
-				<button @click="$emit('change-step', getNextStep())">Continue →</button>
+				<button @click="setCurrentStep(getNextStep())">Continue →</button>
 			</div>
 		</main>
 	</div>
@@ -103,6 +103,9 @@ import { watch, ref, onMounted } from "vue";
 import Step from "../types/steps";
 import { VerticalAlignment, HorizontalAlignment } from "../types/element";
 import { useElementStore } from "../stores/element";
+import { useStepsStore } from "../stores/steps";
+
+const { setCurrentStep } = useStepsStore();
 
 const alignment = ref("top left");
 const verticalAlignment = ref<VerticalAlignment>("top");

@@ -13,7 +13,7 @@
 			/>
 		</div>
 
-		<button @click="$emit('change-step', Step.WhatToAlign)">
+		<button @click="setCurrentStep(Step.WhatToAlign)">
 			Align something else
 		</button>
 	</div>
@@ -23,6 +23,9 @@
 import VCodeBlock from "@wdns/vue-code-block";
 import Step from "../types/steps";
 import getAlignmentInfo from "../features/getAlignmentInfo";
+import { useStepsStore } from "../stores/steps";
+
+const { setCurrentStep } = useStepsStore();
 
 const { message, code } = getAlignmentInfo();
 </script>

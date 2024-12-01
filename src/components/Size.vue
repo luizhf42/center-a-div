@@ -6,13 +6,16 @@
 			<DimensionInput dimension="height" />
 		</main>
 
-		<button @click="$emit('change-step', Step.Result)">Continue →</button>
+		<button @click="setCurrentStep(Step.Result)">Continue →</button>
 	</div>
 </template>
 
 <script setup lang="ts">
+import { useStepsStore } from "../stores/steps";
 import Step from "../types/steps";
 import DimensionInput from "./DimensionInput.vue";
+
+const { setCurrentStep } = useStepsStore();
 </script>
 
 <style scoped lang="postcss">
