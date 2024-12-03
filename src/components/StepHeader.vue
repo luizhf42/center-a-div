@@ -1,6 +1,6 @@
 <template>
 	<header>
-		<button @click="goBack()">←</button>
+		<button @click="goBack()">← <span class="">Go back</span></button>
 		<h2>{{ title }}</h2>
 	</header>
 </template>
@@ -15,10 +15,18 @@ const { goBack } = useStepsStore();
 
 <style scoped lang="postcss">
 header {
-	@apply flex items-center justify-between gap-2;
+	@apply flex items-center justify-center gap-2 w-full px-1 min-h-9 max-sm:flex-col;
+
+	h2 {
+		@apply w-fit;
+	}
 
 	button {
-		@apply w-fit p-0 m-0 bg-transparent cursor-pointer text-3xl hover:bg-transparent hover:font-bold;
+		@apply w-fit p-0 m-0 bg-transparent cursor-pointer text-3xl hover:bg-transparent hover:font-bold max-sm:text-lg;
+
+		span {
+			@apply font-medium sm:hidden underline hover:font-bold;
+		}
 	}
 }
 </style>

@@ -23,6 +23,9 @@ export default {
 			width: {
 				"9/10": "90%",
 			},
+			screens: {
+				sm: "560px",
+			},
 		},
 	},
 };
