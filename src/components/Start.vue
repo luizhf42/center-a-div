@@ -3,20 +3,22 @@
 		<h1>Your definitive alignment helper.</h1>
 		<p>Never forget how to center your <code>div</code> again.</p>
 
-		<button @click="setCurrentStep(Step.WhatToAlign)">Let's go! →</button>
+		<ContinueButton
+			:text="'Let\'s go!'"
+			:nextStep="Step.WhatToAlign"
+			:arrowSize="9"
+		/>
 	</div>
 </template>
 
 <script setup lang="ts">
-import { useStepsStore } from "../stores/steps";
 import Step from "../types/steps";
-
-const { setCurrentStep } = useStepsStore();
+import ContinueButton from "./ContinueButton.vue";
 </script>
 
 <style scoped lang="postcss">
 .wrapper {
-	@apply gap-2;
+	@apply gap-2 px-3 mx-auto;
 
 	h1 {
 		@apply text-4xl font-bold mb-2;
@@ -32,6 +34,10 @@ const { setCurrentStep } = useStepsStore();
 
 	button {
 		@apply text-4xl;
+
+		:deep(svg) {
+			@apply size-9;
+		}
 	}
 }
 </style>

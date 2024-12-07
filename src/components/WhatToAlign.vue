@@ -31,7 +31,7 @@
 				<span>A dialog</span>
 			</label>
 		</div>
-		<button @click="setCurrentStep(Step.HowToAlign)">Continue →</button>
+		<ContinueButton :nextStep="Step.HowToAlign" />
 	</div>
 </template>
 
@@ -41,9 +41,7 @@ import StepHeader from "../components/StepHeader.vue";
 import Step from "../types/steps";
 import { Element } from "../types/element";
 import { useElementStore } from "../stores/element";
-import { useStepsStore } from "../stores/steps";
-
-const { setCurrentStep } = useStepsStore();
+import ContinueButton from "../components/ContinueButton.vue";
 
 const selectedElement = ref<Element>("div");
 const { updateElement } = useElementStore();

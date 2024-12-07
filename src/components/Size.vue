@@ -7,17 +7,15 @@
 			<DimensionInput dimension="height" />
 		</main>
 
-		<button @click="setCurrentStep(Step.Result)">Continue →</button>
+		<ContinueButton :nextStep="Step.Result" />
 	</div>
 </template>
 
 <script setup lang="ts">
-import { useStepsStore } from "../stores/steps";
 import Step from "../types/steps";
 import StepHeader from "../components/StepHeader.vue";
 import DimensionInput from "./DimensionInput.vue";
-
-const { setCurrentStep } = useStepsStore();
+import ContinueButton from "./ContinueButton.vue";
 </script>
 
 <style scoped lang="postcss">

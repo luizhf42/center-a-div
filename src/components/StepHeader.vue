@@ -22,7 +22,7 @@ header {
 	}
 
 	button {
-		@apply w-fit p-0 m-0 bg-transparent cursor-pointer text-3xl hover:bg-transparent hover:font-bold max-sm:text-lg;
+		@apply w-fit cursor-pointer text-3xl hover:font-bold max-sm:text-lg;
 
 		span {
 			@apply font-medium sm:hidden underline hover:font-bold;

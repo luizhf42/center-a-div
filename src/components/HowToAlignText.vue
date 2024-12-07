@@ -36,7 +36,7 @@
 				<p :class="`text-${alignment}`">
 					Your text will be in the {{ alignment }}.
 				</p>
-				<button @click="setCurrentStep(Step.Size)">Continue →</button>
+				<ContinueButton :nextStep="Step.Size" />
 			</div>
 		</main>
 	</div>
@@ -47,10 +47,8 @@ import { ref, watch } from "vue";
 import Step from "../types/steps";
 import { useElementStore } from "../stores/element";
 import { TextAlignment } from "../types/element";
-import { useStepsStore } from "../stores/steps";
 import StepHeader from "../components/StepHeader.vue";
-
-const { setCurrentStep } = useStepsStore();
+import ContinueButton from "../components/ContinueButton.vue";
 
 const { updateTextAlignment } = useElementStore();
 const alignment = ref<TextAlignment>("left");

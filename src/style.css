@@ -10,10 +10,6 @@
 	h2 {
 		@apply text-3xl font-bold;
 	}
-
-	button {
-		@apply default-button;
-	}
 }
 
 @layer components {
@@ -24,6 +20,9 @@
 		margin-top: theme(margin.4);
 		border-radius: theme(borderRadius.xl);
 		transition: theme(transitionDuration.200) theme(transitionProperty.colors);
+		display: flex;
+		align-items: center;
+		gap: theme(gap.2);
 		&:hover {
 			background-color: theme(backgroundColor.button-hover);
 		}
