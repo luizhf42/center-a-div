@@ -13,7 +13,9 @@
 			/>
 		</div>
 
-		<button @click="restart()">Align something else</button>
+		<button @click="restart()">
+			<ArrowUturnLeftIcon /> Align something else
+		</button>
 	</div>
 </template>
 
@@ -21,6 +23,7 @@
 import VCodeBlock from "@wdns/vue-code-block";
 import getAlignmentInfo from "../features/getAlignmentInfo";
 import { useStepsStore } from "../stores/steps";
+import { ArrowUturnLeftIcon } from "@heroicons/vue/24/solid";
 
 const { restart } = useStepsStore();
 
@@ -43,5 +46,9 @@ const { message, code } = getAlignmentInfo();
 
 button {
 	@apply default-button;
+
+	svg {
+		@apply size-7;
+	}
 }
 </style>
