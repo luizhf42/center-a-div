@@ -10,23 +10,23 @@ importers:
     dependencies:
       '@heroicons/vue':
         specifier: ^2.2.0
-        version: 2.2.0(vue@3.5.13(typescript@5.7.2))
+        version: 2.2.0(vue@3.5.13(typescript@5.4.5))
       '@vercel/analytics':
         specifier: ^1.3.2
-        version: 1.4.1(vue@3.5.13(typescript@5.7.2))
+        version: 1.4.1(vue@3.5.13(typescript@5.4.5))
       '@wdns/vue-code-block':
         specifier: ^2.3.3
-        version: 2.3.3(typescript@5.7.2)
+        version: 2.3.3(typescript@5.4.5)
       pinia:
         specifier: ^2.2.2
-        version: 2.2.8(typescript@5.7.2)(vue@3.5.13(typescript@5.7.2))
+        version: 2.2.8(typescript@5.4.5)(vue@3.5.13(typescript@5.4.5))
       vue:
         specifier: ^3.4.37
-        version: 3.5.13(typescript@5.7.2)
+        version: 3.5.13(typescript@5.4.5)
     devDependencies:
       '@vitejs/plugin-vue':
         specifier: ^5.1.2
-        version: 5.2.1(vite@5.4.11)(vue@3.5.13(typescript@5.7.2))
+        version: 5.2.1(vite@5.4.11)(vue@3.5.13(typescript@5.4.5))
       autoprefixer:
         specifier: ^10.4.20
         version: 10.4.20(postcss@8.4.49)
@@ -37,14 +37,14 @@ importers:
         specifier: ^3.4.11
         version: 3.4.15
       typescript:
-        specifier: ^5.6.3
-        version: 5.7.2
+        specifier: ^5.4.5
+        version: 5.4.5
       vite:
         specifier: ^5.4.1
         version: 5.4.11
       vue-tsc:
         specifier: ^2.0.29
-        version: 2.1.10(typescript@5.7.2)
+        version: 2.1.10(typescript@5.4.5)
 
 packages:
 
@@ -884,8 +884,8 @@ packages:
   ts-interface-checker@0.1.13:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
 
-  typescript@5.7.2:
-    resolution: {integrity: sha512-i5t66RHxDvVN40HfDd1PsEThGNnlMCMT3jMUuoh9/0TaqWevNontacunWyN02LA9/fIbEWlcHZcgTKb9QoaLfg==}
+  typescript@5.4.5:
+    resolution: {integrity: sha512-vcI4UpRgg81oIRUFwR0WSIHKt11nJ7SAVlYNIu+QpqeyXP+gpQJy/Z4+F0aGxSE4MqwjyXvW/TzgkLAx2AGHwQ==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -1065,9 +1065,9 @@ snapshots:
   '@esbuild/win32-x64@0.21.5':
     optional: true
 
-  '@heroicons/vue@2.2.0(vue@3.5.13(typescript@5.7.2))':
+  '@heroicons/vue@2.2.0(vue@3.5.13(typescript@5.4.5))':
     dependencies:
-      vue: 3.5.13(typescript@5.7.2)
+      vue: 3.5.13(typescript@5.4.5)
 
   '@isaacs/cliui@8.0.2':
     dependencies:
@@ -1166,14 +1166,14 @@ snapshots:
 
   '@types/estree@1.0.6': {}
 
-  '@vercel/analytics@1.4.1(vue@3.5.13(typescript@5.7.2))':
+  '@vercel/analytics@1.4.1(vue@3.5.13(typescript@5.4.5))':
     optionalDependencies:
-      vue: 3.5.13(typescript@5.7.2)
+      vue: 3.5.13(typescript@5.4.5)
 
-  '@vitejs/plugin-vue@5.2.1(vite@5.4.11)(vue@3.5.13(typescript@5.7.2))':
+  '@vitejs/plugin-vue@5.2.1(vite@5.4.11)(vue@3.5.13(typescript@5.4.5))':
     dependencies:
       vite: 5.4.11
-      vue: 3.5.13(typescript@5.7.2)
+      vue: 3.5.13(typescript@5.4.5)
 
   '@volar/language-core@2.4.10':
     dependencies:
@@ -1224,7 +1224,7 @@ snapshots:
 
   '@vue/devtools-api@6.6.4': {}
 
-  '@vue/language-core@2.1.10(typescript@5.7.2)':
+  '@vue/language-core@2.1.10(typescript@5.4.5)':
     dependencies:
       '@volar/language-core': 2.4.10
       '@vue/compiler-dom': 3.5.13
@@ -1235,7 +1235,7 @@ snapshots:
       muggle-string: 0.4.1
       path-browserify: 1.0.1
     optionalDependencies:
-      typescript: 5.7.2
+      typescript: 5.4.5
 
   '@vue/reactivity@3.5.13':
     dependencies:
@@ -1253,20 +1253,20 @@ snapshots:
       '@vue/shared': 3.5.13
       csstype: 3.1.3
 
-  '@vue/server-renderer@3.5.13(vue@3.5.13(typescript@5.7.2))':
+  '@vue/server-renderer@3.5.13(vue@3.5.13(typescript@5.4.5))':
     dependencies:
       '@vue/compiler-ssr': 3.5.13
       '@vue/shared': 3.5.13
-      vue: 3.5.13(typescript@5.7.2)
+      vue: 3.5.13(typescript@5.4.5)
 
   '@vue/shared@3.5.13': {}
 
-  '@wdns/vue-code-block@2.3.3(typescript@5.7.2)':
+  '@wdns/vue-code-block@2.3.3(typescript@5.4.5)':
     dependencies:
       highlight.js: 11.10.0
       prismjs: 1.29.0
       ua-parser-js: 1.0.39
-      vue: 3.5.13(typescript@5.7.2)
+      vue: 3.5.13(typescript@5.4.5)
     transitivePeerDependencies:
       - typescript
 
@@ -1545,13 +1545,13 @@ snapshots:
 
   pify@2.3.0: {}
 
-  pinia@2.2.8(typescript@5.7.2)(vue@3.5.13(typescript@5.7.2)):
+  pinia@2.2.8(typescript@5.4.5)(vue@3.5.13(typescript@5.4.5)):
     dependencies:
       '@vue/devtools-api': 6.6.4
-      vue: 3.5.13(typescript@5.7.2)
-      vue-demi: 0.14.10(vue@3.5.13(typescript@5.7.2))
+      vue: 3.5.13(typescript@5.4.5)
+      vue-demi: 0.14.10(vue@3.5.13(typescript@5.4.5))
     optionalDependencies:
-      typescript: 5.7.2
+      typescript: 5.4.5
 
   pirates@4.0.6: {}
 
@@ -1725,7 +1725,7 @@ snapshots:
 
   ts-interface-checker@0.1.13: {}
 
-  typescript@5.7.2: {}
+  typescript@5.4.5: {}
 
   ua-parser-js@1.0.39: {}
 
@@ -1747,26 +1747,26 @@ snapshots:
 
   vscode-uri@3.0.8: {}
 
-  vue-demi@0.14.10(vue@3.5.13(typescript@5.7.2)):
+  vue-demi@0.14.10(vue@3.5.13(typescript@5.4.5)):
     dependencies:
-      vue: 3.5.13(typescript@5.7.2)
+      vue: 3.5.13(typescript@5.4.5)
 
-  vue-tsc@2.1.10(typescript@5.7.2):
+  vue-tsc@2.1.10(typescript@5.4.5):
     dependencies:
       '@volar/typescript': 2.4.10
-      '@vue/language-core': 2.1.10(typescript@5.7.2)
+      '@vue/language-core': 2.1.10(typescript@5.4.5)
       semver: 7.6.3
-      typescript: 5.7.2
+      typescript: 5.4.5
 
-  vue@3.5.13(typescript@5.7.2):
+  vue@3.5.13(typescript@5.4.5):
     dependencies:
       '@vue/compiler-dom': 3.5.13
       '@vue/compiler-sfc': 3.5.13
       '@vue/runtime-dom': 3.5.13
-      '@vue/server-renderer': 3.5.13(vue@3.5.13(typescript@5.7.2))
+      '@vue/server-renderer': 3.5.13(vue@3.5.13(typescript@5.4.5))
       '@vue/shared': 3.5.13
     optionalDependencies:
-      typescript: 5.7.2
+      typescript: 5.4.5
 
   which@2.0.2:
     dependencies:
