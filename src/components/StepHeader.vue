@@ -1,11 +1,14 @@
 <template>
 	<header>
-		<button @click="goBack()">← <span class="">Go back</span></button>
+		<button @click="goBack()">
+			<ArrowLeftIcon /><span class="">Go back</span>
+		</button>
 		<h2>{{ title }}</h2>
 	</header>
 </template>
 
 <script setup lang="ts">
+import { ArrowLeftIcon } from "@heroicons/vue/24/solid";
 import { useStepsStore } from "../stores/steps";
 
 const { title } = defineProps<{ title: string }>();
@@ -22,10 +25,23 @@ header {
 	}
 
 	button {
-		@apply w-fit cursor-pointer text-3xl hover:font-bold max-sm:text-lg;
+		@apply w-fit cursor-pointer text-3xl hover:font-bold max-sm:text-lg flex items-center gap-1;
 
 		span {
-			@apply font-medium sm:hidden underline hover:font-bold;
+			@apply font-medium sm:hidden underline;
+		}
+
+		svg {
+			@apply size-6 sm:size-9;
+		}
+
+		&:hover {
+			span {
+				@apply font-bold;
+			}
+			svg {
+				@apply stroke-1 stroke-white;
+			}
 		}
 	}
 }
