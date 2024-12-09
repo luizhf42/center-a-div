@@ -20,7 +20,7 @@
 				<option value="em">em</option>
 			</select>
 		</div>
-		<label class="checkbox">
+		<label v-if="!isDialog" class="checkbox">
 			<input
 				type="checkbox"
 				v-model="isChecked"
@@ -37,9 +37,12 @@ import { Unit } from "../types/element";
 import { useElementStore } from "../stores/element";
 import { Dimension } from "../types/element";
 
-const { dimension } = defineProps<{
+const { dimension, isDialog } = defineProps<{
 	dimension: Dimension;
+	isDialog: boolean;
 }>();
+
+const emit = defineEmits(["inputUpdateIfDialog"]);
 
 const { updateSize } = useElementStore();
 const inputValue = ref("42");
@@ -58,6 +61,7 @@ const getDimensionValue = () =>
 
 const updateSizeFromInput = () => {
 	updateSize(dimension, getDimensionValue());
+	if (isDialog) emit("inputUpdateIfDialog", isInputEmptyOrDisabled());
 };
 </script>
 

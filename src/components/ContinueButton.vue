@@ -1,5 +1,5 @@
 <template>
-	<button @click="setCurrentStep(nextStep)">
+	<button @click="setCurrentStep(nextStep)" :disabled="disabled">
 		<span>{{ text ?? "Continue" }}</span> <ArrowRightIcon />
 	</button>
 </template>
@@ -9,8 +9,9 @@ import Step from "../types/steps";
 import { useStepsStore } from "../stores/steps";
 import { ArrowRightIcon } from "@heroicons/vue/24/solid";
 
-const { text, nextStep } = defineProps<{
+const { text, disabled, nextStep } = defineProps<{
 	text?: string;
+	disabled?: boolean;
 	nextStep: Step;
 }>();
 

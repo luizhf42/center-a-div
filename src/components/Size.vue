@@ -1,13 +1,23 @@
 <template>
 	<div class="wrapper">
 		<StepHeader title="What's the size of your element?" />
-
+		<small v-if="element === 'dialog'">
+			(Since you're aligning a dialog, the size is mandatory!)
+		</small>
 		<main>
-			<DimensionInput dimension="width" />
-			<DimensionInput dimension="height" />
+			<DimensionInput
+				dimension="width"
+				:isDialog="element === 'dialog'"
+				@inputUpdateIfDialog="(isEmpty) => (disabled = isEmpty)"
+			/>
+			<DimensionInput
+				dimension="height"
+				:isDialog="element === 'dialog'"
+				@inputUpdateIfDialog="(isEmpty) => (disabled = isEmpty)"
+			/>
 		</main>
 
-		<ContinueButton :nextStep="Step.Result" />
+		<ContinueButton :nextStep="Step.Result" :disabled />
 	</div>
 </template>
 
@@ -16,6 +26,11 @@ import Step from "../types/steps";
 import StepHeader from "../components/StepHeader.vue";
 import DimensionInput from "./DimensionInput.vue";
 import ContinueButton from "./ContinueButton.vue";
+import { useElementStore } from "../stores/element";
+import { ref } from "vue";
+
+const { element } = useElementStore();
+const disabled = ref(false);
 </script>
 
 <style scoped lang="postcss">
