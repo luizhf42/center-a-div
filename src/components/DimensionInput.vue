@@ -20,14 +20,23 @@
 				<option value="em">em</option>
 			</select>
 		</div>
-		<label v-if="!isDialog" class="checkbox">
-			<input
-				type="checkbox"
-				v-model="isChecked"
-				@change="updateSizeFromInput"
-			/>
-			<span class="checkmark"></span>Unknown
-		</label>
+		<div class="checkbox" v-if="!isDialog">
+			<label>
+				<input
+					type="checkbox"
+					v-model="isChecked"
+					@change="updateSizeFromInput"
+				/>
+				<span class="checkmark"></span>Unknown
+			</label>
+			<span class="tooltip-icon">
+				<span class="tooltip-trigger"><InformationCircleIcon /></span>
+				<span class="tooltip-content"
+					>Check this if the width cannot be precisely determined or will be set
+					dynamically</span
+				>
+			</span>
+		</div>
 	</section>
 </template>
 
@@ -36,6 +45,7 @@ import { computed, ref } from "vue";
 import { Unit } from "../types/element";
 import { useElementStore } from "../stores/element";
 import { Dimension } from "../types/element";
+import { InformationCircleIcon } from "@heroicons/vue/24/outline";
 
 const { dimension, isDialog } = defineProps<{
 	dimension: Dimension;
@@ -95,18 +105,39 @@ section {
 	}
 
 	.checkbox {
-		@apply flex items-center min-[300px]:text-xl text-code-accent mt-2;
+		@apply flex items-center mt-2 h-9;
+		label {
+			@apply flex items-center min-[300px]:text-xl text-code-accent;
 
-		input {
-			@apply opacity-0 h-0 w-0 absolute;
+			input {
+				@apply opacity-0 h-0 w-0 absolute;
 
-			&:checked ~ .checkmark {
-				@apply bg-code-accent;
+				&:checked ~ .checkmark {
+					@apply bg-code-accent;
+				}
+			}
+
+			.checkmark {
+				@apply h-6 w-6 border-2 border-code-accent rounded-md mr-2;
 			}
 		}
+		.tooltip-icon {
+			@apply relative ml-1 h-full flex items-center justify-center;
+		}
 
-		.checkmark {
-			@apply h-6 w-6 border-2 border-code-accent rounded-md mr-2;
+		.tooltip-trigger {
+			@apply cursor-help w-5 text-code-accent;
+		}
+
+		.tooltip-content {
+			@apply invisible w-32 absolute z-10 bg-gray-800 text-white text-xs px-2 py-1 rounded-md opacity-0 transition-opacity duration-300 ease-in-out;
+			bottom: 100%;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+
+		.tooltip-icon:hover .tooltip-content {
+			@apply visible opacity-100;
 		}
 	}
 }
