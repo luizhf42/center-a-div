@@ -43,16 +43,17 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from "vue";
+import { onBeforeMount, ref, watch } from "vue";
 import Step from "../types/steps";
 import { useElementStore } from "../stores/element";
 import { TextAlignment } from "../types/element";
 import StepHeader from "../components/StepHeader.vue";
 import ContinueButton from "../components/ContinueButton.vue";
 
-const { updateTextAlignment } = useElementStore();
+const { updateTextAlignment, textAlignment } = useElementStore();
 const alignment = ref<TextAlignment>("left");
 watch(alignment, (newAlignment) => updateTextAlignment(newAlignment));
+onBeforeMount(() => alignment.value = textAlignment ?? "left")
 </script>
 
 <style scoped lang="postcss">

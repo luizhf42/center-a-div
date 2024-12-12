@@ -89,19 +89,18 @@
 			<div class="alignment-result">
 				<p>
 					Your element will be aligned vertically at the
-					{{ verticalAlignment }} and horizontally at the
-					{{ horizontalAlignment }}.
+					{{ alignment.split(" ")[0] }} and horizontally at the
+					{{ alignment.split(" ")[1] }}.
 				</p>
 
 				<ContinueButton :nextStep="getNextStep()" />
-				<!-- <button @click="setCurrentStep(getNextStep())">Continue →</button> -->
 			</div>
 		</main>
 	</div>
 </template>
 
 <script setup lang="ts">
-import { watch, ref } from "vue";
+import { watch, ref, onBeforeMount } from "vue";
 import Step from "../types/steps";
 import { VerticalAlignment, HorizontalAlignment } from "../types/element";
 import { useElementStore } from "../stores/element";
@@ -109,26 +108,38 @@ import StepHeader from "../components/StepHeader.vue";
 import ContinueButton from "../components/ContinueButton.vue";
 
 const alignment = ref("top left");
-const verticalAlignment = ref<VerticalAlignment>("top");
-const horizontalAlignment = ref<HorizontalAlignment>("left");
 
-const { updateHorizontalAlignment, updateVerticalAlignment, element } =
-	useElementStore();
+const {
+	updateHorizontalAlignment,
+	updateVerticalAlignment,
+	element,
+	horizontalAlignment,
+	verticalAlignment,
+} = useElementStore();
 
 watch(alignment, (newAlignment) => {
-	[verticalAlignment.value, horizontalAlignment.value] = newAlignment.split(
+	const [newVerticalAlignment, newHorizontalAlignment] = newAlignment.split(
 		" "
 	) as [VerticalAlignment, HorizontalAlignment];
-	updateStoreAlignment();
+	updateStoreAlignment(newVerticalAlignment, newHorizontalAlignment);
 });
 
-const updateStoreAlignment = () => {
-	updateVerticalAlignment(verticalAlignment.value);
-	updateHorizontalAlignment(horizontalAlignment.value);
+const updateStoreAlignment = (
+	newVerticalAlignment: VerticalAlignment,
+	newHorizontalAlignment: HorizontalAlignment
+) => {
+	updateVerticalAlignment(newVerticalAlignment);
+	updateHorizontalAlignment(newHorizontalAlignment);
 };
 
 const getNextStep = () =>
 	element === "text" ? Step.HowToAlignText : Step.Size;
+
+onBeforeMount(() => {
+	if (verticalAlignment && horizontalAlignment)
+		alignment.value = `${verticalAlignment} ${horizontalAlignment}`;
+	else alignment.value = "top left";
+});
 </script>
 
 <style scoped lang="postcss">

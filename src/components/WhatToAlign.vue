@@ -36,7 +36,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from "vue";
+import { onBeforeMount, ref, watch } from "vue";
 import StepHeader from "../components/StepHeader.vue";
 import Step from "../types/steps";
 import { Element } from "../types/element";
@@ -44,8 +44,9 @@ import { useElementStore } from "../stores/element";
 import ContinueButton from "../components/ContinueButton.vue";
 
 const selectedElement = ref<Element>("div");
-const { updateElement } = useElementStore();
+const { element, updateElement } = useElementStore();
 watch(selectedElement, (newElement) => updateElement(newElement));
+onBeforeMount(() => selectedElement.value = element ?? "div")
 </script>
 
 <style scoped lang="postcss">
