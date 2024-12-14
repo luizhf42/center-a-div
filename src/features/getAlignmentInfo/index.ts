@@ -1,15 +1,8 @@
 import { useElementStore } from "../../stores/element";
 import chooseMethod from "./chooseMethod";
-import getFlexboxCode from "./getFlexboxCode";
-import getMarginCode from "./getMarginCode";
-import getPositionCode from "./getPositionCode";
-import getSizeCode from "./getSizeCode";
-
-const classNames = {
-	flexbox: "parent",
-	margin: "element",
-	position: "element",
-};
+import FlexboxAlignment from "./FlexboxAlignment";
+import PositionAlignment from "./PositionAlignment";
+import MarginAlignment from "./MarginAlignment";
 
 const messages = {
 	flexbox: "Use Flexbox! Add that snippet to the parent of your element.",
@@ -18,26 +11,33 @@ const messages = {
 };
 
 const getAlignmentInfo = () => {
-	const { element, verticalAlignment, horizontalAlignment, textAlignment } =
-		useElementStore();
+	const {
+		element,
+		verticalAlignment,
+		horizontalAlignment,
+		textAlignment,
+		size,
+	} = useElementStore();
 	const method = chooseMethod(element, verticalAlignment);
 
-	const elementAlignment = {
-		flexbox: getFlexboxCode(verticalAlignment, horizontalAlignment),
-		margin: getMarginCode(horizontalAlignment),
-		position: getPositionCode(verticalAlignment, horizontalAlignment),
+	const alignmentClass = {
+		flexbox: FlexboxAlignment,
+		margin: MarginAlignment,
+		position: PositionAlignment,
 	}[method];
 
+	const alignmentInstance = new alignmentClass!(
+		verticalAlignment,
+		horizontalAlignment,
+		size,
+		textAlignment,
+		element
+	);
+	const code = alignmentInstance.generateCode();
+	const explanation = alignmentInstance.getExplanation();
 	const message = messages[method];
-	const properties = [elementAlignment, ...getSizeCode()];
 
-	if (element === "text") properties.push(`text-align: ${textAlignment};`);
-
-	const code = `.${classNames[method]} {
-  ${properties.join("\n  ")}
-}`;
-
-	return { message, code };
+	return { code, explanation, message };
 };
 
 export default getAlignmentInfo;
