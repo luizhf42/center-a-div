@@ -4,12 +4,6 @@ import FlexboxAlignment from "./FlexboxAlignment";
 import PositionAlignment from "./PositionAlignment";
 import MarginAlignment from "./MarginAlignment";
 
-const messages = {
-	flexbox: "Use Flexbox! Add that snippet to the parent of your element.",
-	margin: "Use flow layout! Add that snippet to your element.",
-	position: "Use fixed positioning! Add that snippet to your element.",
-};
-
 const getAlignmentInfo = () => {
 	const {
 		element,
@@ -35,9 +29,8 @@ const getAlignmentInfo = () => {
 	);
 	const code = alignmentInstance.generateCode();
 	const explanation = alignmentInstance.getExplanation();
-	const message = messages[method];
 
-	return { code, explanation, message };
+	return { code, explanation };
 };
 
 export default getAlignmentInfo;

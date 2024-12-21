@@ -12,25 +12,41 @@ class FlexboxAlignment extends BaseAlignment {
 		right: "flex-end",
 	};
 	generateCode() {
+		const elementProperties = this.getSizeAndTextProperties();
+		elementProperties.push("/* Add your styles! */")
 		return `.parent {
   display: flex;
   align-items: ${this.verticalAlignmentMapping[this.verticalAlignment]};
   justify-content: ${this.horizontalAlignmentMapping[this.horizontalAlignment]};
 	
   .element {
-    ${this.getSizeAndTextProperties().join("\n    ")}
+    ${elementProperties.join("\n    ")}
   }
 }`;
 	}
 
 	getExplanation() {
-		return `This CSS uses Flexbox layout.
-- \`align-items\` aligns the element vertically (${
-			this.verticalAlignmentMapping[this.verticalAlignment]
-		}).
-- \`justify-content\` aligns the element horizontally (${
-			this.horizontalAlignmentMapping[this.horizontalAlignment]
-		}).`;
+		const verticalAlignmentValue =
+			this.verticalAlignmentMapping[this.verticalAlignment];
+		const horizontalAlignmentValue =
+			this.horizontalAlignmentMapping[this.horizontalAlignment];
+
+		const explanationItems = [
+			"This CSS uses Flexbox layout, which CSS properties must be set <strong>in the parent element!</strong>",
+			`<code>align-items</code> uses the <code>${verticalAlignmentValue}</code> value, aligning the element vertically at the ${this.verticalAlignment} of the cross-axis.`,
+			`<code>justify-content</code> uses the <code>${horizontalAlignmentValue}</code> value, aligning the element horizontally at the ${this.horizontalAlignment} of the main axis.`,
+		];
+
+		if (this.element === "text") {
+			explanationItems.push(
+				`The <code>text-align</code> does his job aligning the text (not the block!) to the ${this.textAlignment}.`
+			);
+		}
+
+		return {
+			title: "Aligning an element using Flexbox",
+			items: explanationItems,
+		};
 	}
 }
 

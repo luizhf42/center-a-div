@@ -18,6 +18,7 @@ export default {
 				button: "#007ea7",
 				"button-hover": "#005f80",
 				code: "#0d1117",
+				"code-hover": "#161b22",
 				disabled: "#636363",
 			},
 			width: {
