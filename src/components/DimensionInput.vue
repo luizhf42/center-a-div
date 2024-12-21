@@ -20,7 +20,7 @@
 				<option value="em">em</option>
 			</select>
 		</div>
-		<div class="checkbox" v-if="!isDialog">
+		<div class="checkbox" v-if="!isRequired">
 			<label>
 				<input
 					type="checkbox"
@@ -47,12 +47,12 @@ import { useElementStore } from "../stores/element";
 import { Dimension } from "../types/element";
 import { InformationCircleIcon } from "@heroicons/vue/24/outline";
 
-const { dimension, isDialog } = defineProps<{
+const { dimension, isRequired } = defineProps<{
 	dimension: Dimension;
-	isDialog: boolean;
+	isRequired: boolean;
 }>();
 
-const emit = defineEmits(["inputUpdateIfDialog"]);
+const emit = defineEmits(["inputUpdateIfRequired"]);
 
 const { updateSize } = useElementStore();
 const inputValue = ref("42");
@@ -71,7 +71,7 @@ const getDimensionValue = () =>
 
 const updateSizeFromInput = () => {
 	updateSize(dimension, getDimensionValue());
-	if (isDialog) emit("inputUpdateIfDialog", isInputEmptyOrDisabled());
+	if (isRequired) emit("inputUpdateIfRequired", isInputEmptyOrDisabled());
 };
 </script>
 

@@ -4,16 +4,17 @@
 		<small v-if="element === 'dialog'">
 			(Since you're aligning a dialog, the size is mandatory!)
 		</small>
+
 		<main>
 			<DimensionInput
 				dimension="width"
-				:isDialog="element === 'dialog'"
-				@inputUpdateIfDialog="(isEmpty) => (disabled = isEmpty)"
+				:isRequired="element === 'dialog'"
+				@input-update-if-required="(isEmpty) => (disabled = isEmpty)"
 			/>
 			<DimensionInput
 				dimension="height"
-				:isDialog="element === 'dialog'"
-				@inputUpdateIfDialog="(isEmpty) => (disabled = isEmpty)"
+				:isRequired="element === 'dialog'"
+				@input-update-if-required="(isEmpty) => (disabled = isEmpty)"
 			/>
 		</main>
 
