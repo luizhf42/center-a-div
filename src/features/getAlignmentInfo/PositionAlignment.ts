@@ -49,7 +49,6 @@ class PositionAlignment extends BaseAlignment {
 			left,
 		};
 
-		// if both top and bottom are 0, or both left and right are 0, prevent it from being pushed
 		if (top === "0" && bottom === "0") {
 			delete insetValues.top;
 			delete insetValues.bottom;
@@ -79,6 +78,10 @@ class PositionAlignment extends BaseAlignment {
 				`The <code>auto</code> value just completes the shorthand, adapting dynamically to the other edges' values.`
 			);
 		}
+
+		explanationItems.push(
+			"The <code>margin: auto</code> is a trick to help pushing the element to the desired position."
+		);
 
 		explanationItems.push(
 			"The size here is mandatory to prevent an unexpected behavior from the inset, that, in some cases, can stretch the element!"
