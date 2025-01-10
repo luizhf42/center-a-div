@@ -27,14 +27,14 @@ const stepsComponents = {
 
 const currentStepComponent = computed(() => stepsComponents[currentStep.value]);
 
-const currentPath = ref(window.location.pathname);
+const currentHash = ref(window.location.hash);
 
-window.addEventListener("popstate", () => {
-	currentPath.value = window.location.pathname;
+window.addEventListener("hashchange", () => {
+	currentHash.value = window.location.hash;
 });
 
 const currentView = computed(() =>
-	currentPath.value === "/about" ? About : currentStepComponent.value
+	currentHash.value === "#about" ? About : currentStepComponent.value
 );
 </script>
 
