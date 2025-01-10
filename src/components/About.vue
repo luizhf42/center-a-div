@@ -18,7 +18,7 @@
 			</p>
 		</div>
 
-		<div>
+		<div class="content">
 			<article v-for="(section, index) in sections" :key="index">
 				<h2>{{ section.heading }}</h2>
 				<p v-html="section.content"></p>
@@ -79,14 +79,22 @@ section {
 		@apply bg-code px-2 py-1 mx-0.5 rounded-sm;
 	}
 
-	article {
-		@apply bg-code rounded-lg p-6 border shadow-sm shadow-accent-blue my-6;
-		h2 {
-			@apply text-xl font-semibold mb-2;
-		}
+	.content {
+		@apply w-9/10 flex flex-col items-center gap-6 mx-auto;
+		article {
+			@apply gap-3 bg-code w-full max-w-xl border-2 border-accent-blue rounded-lg p-3 shadow;
 
-		p {
-			@apply leading-relaxed;
+			h2 {
+				@apply text-xl font-semibold mb-2;
+			}
+
+			p {
+				@apply leading-relaxed;
+
+				:deep(code) {
+					@apply text-accent-blue mx-1;
+				}
+			}
 		}
 	}
 }

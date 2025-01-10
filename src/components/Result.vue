@@ -80,7 +80,7 @@ const selectedView = ref("code");
 }
 
 .result {
-	@apply flex items-center text-left gap-3 bg-code w-9/10 max-w-xl border border-accent-blue rounded-md p-3 shadow;
+	@apply flex items-center text-left gap-3 bg-code w-9/10 max-w-xl border-2 border-accent-blue rounded-md p-3 shadow;
 
 	.v-code-block {
 		@apply bg-code w-full rounded-md overflow-x-auto shadow;

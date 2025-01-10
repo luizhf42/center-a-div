@@ -26,18 +26,14 @@ div {
 		@apply text-lg font-semibold;
 	}
 
-	ul {
-		/* @apply ; */
-
-		li {
-			@apply text-justify my-1;
-			:deep(code) {
-				@apply text-accent-blue;
-			}
-			&::before {
-				@apply text-accent-blue mr-2 font-bold;
-				content: ">";
-			}
+	li {
+		@apply text-justify my-1;
+		:deep(code) {
+			@apply text-accent-blue;
+		}
+		&::before {
+			@apply text-accent-blue mr-2 font-bold;
+			content: ">";
 		}
 	}
 }
