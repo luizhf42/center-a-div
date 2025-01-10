@@ -8,6 +8,16 @@
 			:nextStep="Step.WhatToAlign"
 			:arrowSize="9"
 		/>
+
+		<footer>
+			<nav>
+				<ul>
+					<li><a href="/about">About</a></li>
+					<li><a href="https://github.com/luizhf42/center-a-div" rel="noopener noreferrer" target="_blank">GitHub</a></li>
+					<li><a href="https://linkedin.com/in/luizhf42" rel="noopener noreferrer" target="_blank">LinkedIn</a></li>
+				</ul>
+			</nav>
+		</footer>
 	</div>
 </template>
 
@@ -25,7 +35,7 @@ import ContinueButton from "./ContinueButton.vue";
 	}
 
 	p {
-		@apply text-2xl font-medium mb-3;
+		@apply text-2xl font-medium mb-3 leading-relaxed;
 
 		code {
 			@apply bg-code px-2 py-1 mx-0.5 rounded-sm;
@@ -37,6 +47,14 @@ import ContinueButton from "./ContinueButton.vue";
 
 		:deep(svg) {
 			@apply size-9;
+		}
+	}
+
+	footer {
+		@apply fixed bottom-0 py-3 mx-auto;
+
+		ul {
+			@apply flex gap-6;
 		}
 	}
 }
