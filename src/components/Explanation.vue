@@ -32,10 +32,10 @@ div {
 		li {
 			@apply text-justify my-1;
 			:deep(code) {
-				@apply text-code-accent;
+				@apply text-accent-blue;
 			}
 			&::before {
-				@apply text-code-accent mr-2 font-bold;
+				@apply text-accent-blue mr-2 font-bold;
 				content: ">";
 			}
 		}

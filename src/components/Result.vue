@@ -39,10 +39,10 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import VCodeBlock from "@wdns/vue-code-block";
+import { ArrowUturnLeftIcon } from "@heroicons/vue/24/solid";
 import Explanation from "./Explanation.vue";
 import getAlignmentInfo from "../features/getAlignmentInfo";
 import { useStepsStore } from "../stores/steps";
-import { ArrowUturnLeftIcon } from "@heroicons/vue/24/solid";
 
 const { restart } = useStepsStore();
 const { code, explanation } = getAlignmentInfo();
@@ -58,7 +58,7 @@ const selectedView = ref("code");
 		@apply flex items-center gap-2 cursor-pointer;
 
 		span {
-			@apply px-4 py-2 rounded-lg border-2 border-code-accent transition bg-code text-white hover:bg-code-hover;
+			@apply px-4 py-2 rounded-lg border-2 border-accent-blue transition bg-code text-white hover:bg-code-hover;
 
 			&.code {
 				@apply rounded-r-none;
@@ -73,14 +73,14 @@ const selectedView = ref("code");
 			@apply sr-only;
 
 			&:checked + span {
-				@apply bg-code-accent font-bold text-black;
+				@apply bg-accent-blue font-bold text-black;
 			}
 		}
 	}
 }
 
 .result {
-	@apply flex items-center text-left gap-3 bg-code w-9/10 max-w-xl border border-code-accent rounded-md p-3 shadow;
+	@apply flex items-center text-left gap-3 bg-code w-9/10 max-w-xl border border-accent-blue rounded-md p-3 shadow;
 
 	.v-code-block {
 		@apply bg-code w-full rounded-md overflow-x-auto shadow;

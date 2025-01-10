@@ -10,17 +10,18 @@ export default {
 				mono: ["JetBrains Mono", "monospace"],
 			},
 			colors: {
-				"code-accent": "#79c0ff",
+				"accent-blue": "#79c0ff",
 				"gradient-start": "#19163f",
 				"gradient-end": "#0b122b",
 			},
 			backgroundColor: {
-				button: "#007ea7",
-				"button-hover": "#005f80",
+				"primary-button": "#007ea7",
+				"primary-button-hover": "#005f80",
 				code: "#0d1117",
 				"code-hover": "#161b22",
 				disabled: "#636363",
 			},
+
 			width: {
 				"9/10": "90%",
 			},

@@ -14,7 +14,7 @@
 
 @layer components {
 	.default-button {
-		background: theme(backgroundColor.button);
+		background: theme(backgroundColor.primary-button);
 		font-size: theme(fontSize.2xl);
 		padding: theme(padding.4) theme(padding.6);
 		margin-top: theme(margin.4);
@@ -24,19 +24,18 @@
 		align-items: center;
 		gap: theme(gap.2);
 		&:hover {
-			background-color: theme(backgroundColor.button-hover);
+			background-color: theme(backgroundColor.primary-button-hover);
 		}
 		&:disabled {
       opacity: 0.5;
       cursor: not-allowed;
 			background: theme(backgroundColor.disabled);
-			
     }
 	}
 }
 
 body {
-	@apply min-h-full bg-gradient-end text-white bg-gradient-to-br from-gradient-start to-gradient-end to-80%;
+	@apply min-h-screen bg-gradient-end text-white bg-gradient-to-br from-gradient-start to-gradient-end to-80%;
 
 	/* Make arrows of the number input disappear */
 	/* Chrome, Safari, Edge, Opera */

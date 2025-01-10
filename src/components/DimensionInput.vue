@@ -80,7 +80,7 @@ section {
 	@apply flex flex-col w-fit my-4;
 
 	.input {
-		@apply flex items-center min-[300px]:text-xl h-10 text-code-accent bg-code p-3 justify-between w-64 min-[300px]:w-72 rounded-md;
+		@apply flex items-center min-[300px]:text-xl h-10 text-accent-blue bg-code p-3 justify-between w-64 min-[300px]:w-72 rounded-md;
 
 		input,
 		select {
@@ -107,18 +107,18 @@ section {
 	.checkbox {
 		@apply flex items-center mt-2 h-9;
 		label {
-			@apply flex items-center min-[300px]:text-xl text-code-accent;
+			@apply flex items-center min-[300px]:text-xl text-accent-blue;
 
 			input {
 				@apply opacity-0 h-0 w-0 absolute;
 
 				&:checked ~ .checkmark {
-					@apply bg-code-accent;
+					@apply bg-accent-blue;
 				}
 			}
 
 			.checkmark {
-				@apply h-6 w-6 border-2 border-code-accent rounded-md mr-2;
+				@apply h-6 w-6 border-2 border-accent-blue rounded-md mr-2;
 			}
 		}
 		.tooltip-icon {
@@ -126,7 +126,7 @@ section {
 		}
 
 		.tooltip-trigger {
-			@apply cursor-help w-5 text-code-accent;
+			@apply cursor-help w-5 text-accent-blue;
 		}
 
 		.tooltip-content {
