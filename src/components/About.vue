@@ -81,6 +81,7 @@ section {
 
 	.content {
 		@apply w-9/10 flex flex-col items-center gap-6 mx-auto;
+
 		article {
 			@apply gap-3 bg-code w-full max-w-xl border-2 border-accent-blue rounded-lg p-3 shadow;
 
@@ -89,7 +90,7 @@ section {
 			}
 
 			p {
-				@apply leading-relaxed;
+				@apply leading-relaxed text-justify;
 
 				:deep(code) {
 					@apply text-accent-blue mx-1;
