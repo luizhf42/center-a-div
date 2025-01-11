@@ -13,7 +13,7 @@
 			<nav>
 				<ul>
 					<li><a href="#about">About</a></li>
-					<li><a href="https://github.com/luizhf42/center-a-div" rel="noopener noreferrer" target="_blank">GitHub</a></li>
+					<li><a href="https://github.com/luizhf42/css-aligner" rel="noopener noreferrer" target="_blank">GitHub</a></li>
 					<li><a href="https://linkedin.com/in/luizhf42" rel="noopener noreferrer" target="_blank">LinkedIn</a></li>
 				</ul>
 			</nav>
