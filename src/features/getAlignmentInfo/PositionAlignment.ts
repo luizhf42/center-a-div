@@ -1,3 +1,4 @@
+import CSSTree from "../../types/cssTree";
 import BaseAlignment from "./BaseAlignment";
 
 class PositionAlignment extends BaseAlignment {
@@ -13,14 +14,21 @@ class PositionAlignment extends BaseAlignment {
 		right: ["auto", "0"],
 	};
 
-	generateCode() {
+	generateAST(): CSSTree {
 		const inset = this.getInsetValue();
-		return `.element {
-  position: fixed;
-  margin: auto;
-  inset: ${inset};
-  ${this.getSizeAndTextProperties().join("\n  ")}
-}`;
+
+		const declarations: Record<string, string> = {
+			position: "fixed",
+			margin: "auto",
+			inset,
+			...this.getSizeDeclarations(),
+			...this.getTextAlignmentDeclaration(),
+		};
+
+		return {
+			selector: ".element",
+			declarations,
+		};
 	}
 
 	getExplanation() {

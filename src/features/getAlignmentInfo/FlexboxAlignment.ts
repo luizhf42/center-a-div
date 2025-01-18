@@ -1,3 +1,4 @@
+import CSSTree from "../../types/cssTree";
 import BaseAlignment from "./BaseAlignment";
 
 class FlexboxAlignment extends BaseAlignment {
@@ -6,23 +7,36 @@ class FlexboxAlignment extends BaseAlignment {
 		middle: "center",
 		bottom: "flex-end",
 	};
+
 	private horizontalAlignmentMapping = {
 		left: "flex-start",
 		center: "center",
 		right: "flex-end",
 	};
-	generateCode() {
-		const elementProperties = this.getSizeAndTextProperties();
-		elementProperties.push("/* Add your styles! */")
-		return `.parent {
-  display: flex;
-  align-items: ${this.verticalAlignmentMapping[this.verticalAlignment]};
-  justify-content: ${this.horizontalAlignmentMapping[this.horizontalAlignment]};
-	
-  .element {
-    ${elementProperties.join("\n    ")}
-  }
-}`;
+
+	generateAST(): CSSTree {
+		const parentDeclarations = {
+			display: "flex",
+			"align-items": this.verticalAlignmentMapping[this.verticalAlignment],
+			"justify-content":
+				this.horizontalAlignmentMapping[this.horizontalAlignment],
+		};
+		
+		const elementDeclarations = {
+			...this.getSizeDeclarations(),
+			...this.getTextAlignmentDeclaration(),
+		};
+
+		return {
+			selector: ".parent",
+			declarations: parentDeclarations,
+			children: [
+				{
+					selector: ".element",
+					declarations: elementDeclarations,
+				},
+			],
+		};
 	}
 
 	getExplanation() {

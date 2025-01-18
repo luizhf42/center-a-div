@@ -27,7 +27,7 @@ const getAlignmentInfo = () => {
 		textAlignment,
 		element
 	);
-	const code = alignmentInstance.generateCode();
+	const code = alignmentInstance.getCSSCode();
 	const explanation = alignmentInstance.getExplanation();
 
 	return { code, explanation };

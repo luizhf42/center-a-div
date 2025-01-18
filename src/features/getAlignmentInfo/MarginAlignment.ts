@@ -1,3 +1,4 @@
+import CSSTree from "../../types/cssTree";
 import BaseAlignment from "./BaseAlignment";
 
 class MarginAlignment extends BaseAlignment {
@@ -6,17 +7,22 @@ class MarginAlignment extends BaseAlignment {
 		center: ["auto", "auto"],
 		right: ["auto", "0"],
 	};
-	generateCode() {
+
+	generateAST(): CSSTree {
 		const [marginLeft, marginRight] =
 			this.marginMapping[this.horizontalAlignment];
-		const properties = [
-			`margin-left: ${marginLeft};`,
-			`margin-right: ${marginRight};`,
-			...this.getSizeAndTextProperties(),
-		];
-		return `.element {
-  ${properties.join("\n  ")}
-}`;
+
+		const declarations = {
+			"margin-left": marginLeft,
+			"margin-right": marginRight,
+			...this.getSizeDeclarations(),
+			...this.getTextAlignmentDeclaration(),
+		};
+
+		return {
+			selector: ".element",
+			declarations,
+		};
 	}
 
 	getExplanation() {
