@@ -112,11 +112,7 @@ class PositionAlignment extends BaseAlignment {
 		const [left, right] = this.horizontalInsetMapping[this.horizontalAlignment];
 		const inset = `${top} ${right} ${bottom} ${left}`;
 
-		if (!inset.includes("auto")) {
-			return "0";
-		}
-
-		return inset;
+		return inset.includes("auto") ? inset : "0";
 	}
 }
 
