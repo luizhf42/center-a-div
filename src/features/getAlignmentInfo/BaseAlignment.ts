@@ -8,11 +8,11 @@ import {
 } from "../../types/element";
 
 class BaseAlignment {
-	protected verticalAlignment: VerticalAlignment;
-	protected horizontalAlignment: HorizontalAlignment;
-	protected size: Size;
-	protected textAlignment: TextAlignment;
-	protected element: Element;
+	protected readonly verticalAlignment: VerticalAlignment;
+	protected readonly horizontalAlignment: HorizontalAlignment;
+	protected readonly size: Size;
+	protected readonly textAlignment: TextAlignment;
+	protected readonly element: Element;
 
 	constructor(
 		verticalAlignment: VerticalAlignment,
