@@ -96,9 +96,7 @@ class PositionAlignment extends BaseAlignment {
 		);
 
 		if (this.element === "text") {
-			explanationItems.push(
-				`The <code>text-align</code> does his job aligning the text (not the block!) to the ${this.textAlignment}.`
-			);
+			explanationItems.push(this.getTextAlignmentExplanation());
 		}
 
 		return {

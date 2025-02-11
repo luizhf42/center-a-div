@@ -70,6 +70,10 @@ class BaseAlignment {
 	protected getTextAlignmentDeclaration(): Record<string, string> {
 		return this.element === "text" ? { "text-align": this.textAlignment } : {};
 	}
+
+	protected getTextAlignmentExplanation(): string {
+		return `The <code>text-align</code> does his job aligning the text (not the block!) to the ${this.textAlignment}.`;
+	}
 }
 
 export default BaseAlignment;

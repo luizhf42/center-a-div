@@ -21,7 +21,7 @@ class FlexboxAlignment extends BaseAlignment {
 			"justify-content":
 				this.horizontalAlignmentMapping[this.horizontalAlignment],
 		};
-		
+
 		const elementDeclarations = {
 			...this.getSizeDeclarations(),
 			...this.getTextAlignmentDeclaration(),
@@ -52,9 +52,7 @@ class FlexboxAlignment extends BaseAlignment {
 		];
 
 		if (this.element === "text") {
-			explanationItems.push(
-				`The <code>text-align</code> does his job aligning the text (not the block!) to the ${this.textAlignment}.`
-			);
+			explanationItems.push(this.getTextAlignmentExplanation());
 		}
 
 		return {
