@@ -37,7 +37,7 @@ class MarginAlignment extends BaseAlignment {
 
 		if (marginLeft === "auto" && marginRight === "auto") {
 			explanationItems.push(
-				"Both <code>margin-left</code> and <code>margin-right</code> are set to <code>auto</code>, creating equal spacing on both sides and centering the element horizontally."
+				"Both <code>margin-left</code> and <code>margin-right</code> are set to <code>auto</code>, creating equal spacing on both sides and centering the element horizontally. You can also use the <code>margin: auto;</code> shorthand."
 			);
 		} else if (marginLeft === "0" && marginRight === "auto") {
 			explanationItems.push(
