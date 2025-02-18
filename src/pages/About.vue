@@ -1,6 +1,8 @@
 <template>
 	<section>
-		<a class="go-back" href="/"><ArrowLeftIcon /> Back to home</a>
+		<RouterLink class="go-back" to="/"
+			><ArrowLeftIcon /> Back to home</RouterLink
+		>
 		<h1>Never forget how to center your <code>div</code> again.</h1>
 
 		<div class="intro">
